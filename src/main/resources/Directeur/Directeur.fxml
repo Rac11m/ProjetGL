@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.layout.AnchorPane?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controllers.DirecteurC">
+    <children>
+        <Button fx:id="VP" layoutX="88.0" layoutY="169.0" mnemonicParsing="false" onAction="#EtablirPlanDeVenteBouton" prefHeight="98.0" prefWidth="344.0" text="Etablir Plan de vente " />
+        <Button fx:id="PC" layoutX="88.0" layoutY="316.0" mnemonicParsing="false" onAction="#EditePlanDeVenteBouton" prefHeight="98.0" prefWidth="344.0" text="Edit Plan de vente" />
+        <Button fx:id="GV" layoutX="88.0" layoutY="449.0" mnemonicParsing="false" onAction="#ConsulterBilanDeVenteBouton" prefHeight="98.0" prefWidth="344.0" text="Consulter bilan de vente" />
+        <Label alignment="CENTER" layoutY="61.0" prefHeight="48.0" prefWidth="800.0" text="Bienvenue Mr.Directeur" />
+        <Button fx:id="RTR" mnemonicParsing="false" onAction="#switchToPreviousScene" prefHeight="36.0" prefWidth="118.0" text="Retour" />
+    </children>
+</AnchorPane>

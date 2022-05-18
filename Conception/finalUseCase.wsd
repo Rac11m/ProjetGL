@@ -1,0 +1,80 @@
+@startuml produits
+left to right direction
+
+    Actor "Agent de vente" AS A1
+    Actor "Agent Commercial" AS A2
+    Actor "Client" AS A3
+    Actor "Directeur" AS A4
+
+
+rectangle Systeme {
+        
+    (Authentification Agent de vente) AS UC1
+    (Authentification Agent commercial) AS UC2
+    (Authentification Client) AS UC3
+    (Authentification Directeur) AS UC4
+    (Gérer Produits) AS UC5
+    (Ajouter produit) AS UC6
+    (Modifier produit) AS UC7
+    (Rechercher produit) AS UC8
+    (Gérer Client) AS UC9
+    (Ajouter Client) AS UC10
+    (Modifier Client) AS UC11
+    (Supprimer Client) AS UC12
+    (Consulter les information du client) AS UC13
+    (Rechercher client) AS UC22
+    (facturer le client) AS UC18
+    (facturer par email) AS UC19
+    (Gérer Vente) AS UC14
+    (Passer commande) AS UC15
+    (Établir plan de vente) AS UC16
+    (Consulter bilan de vente) AS UC17
+    (Edite plan de vente) AS UC20
+    (Verifie commande) AS UC21
+    (S'authentifier) AS UC23
+    (Supprimer Produit) AS UC24
+
+}
+
+A1 - UC23
+A2 --- UC23
+A3 -- UC23
+A4 ---- UC23
+
+UC23 <.... UC1 : <<extends>> "si agent de vente"
+UC23 <.... UC2 : <<extends>> "si agent commercial"
+UC23 <.... UC3 : <<extends>> "si client"
+UC23 <.... UC4 : <<extends>> "si Directeur"
+
+UC6 ....> UC5 : <<extends>>
+UC7 ....> UC5 : <<extends>>
+UC7 ..> UC2 : <<extends>>
+UC8 <.. UC6 : <<includes>>
+UC8 <.. UC7 : <<includes>>
+UC5 ..> UC1 : <<extends>>
+
+UC10 ....> UC9 : <<extends>> 
+UC11 .....> UC9 : <<extends>>
+UC12 .....> UC9 : <<extends>>
+UC22 <.. UC10: <<includes>>
+UC22 <.. UC11: <<includes>>
+UC22 <.. UC12: <<includes>>
+UC22 <.. UC13: <<includes>>
+UC13 .....> UC9 : <<extends>>
+UC18 ..> UC14: <<extends>>
+UC19 ..> UC18: <<extends>> "si demande"
+UC9  ..> UC1 : <<extends>>
+UC9  ..> UC2 : <<extends>>
+UC14 ..> UC1 : <<extends>>
+UC15 ..> UC3 : <<extends>>
+UC17 ..> UC4 : <<extends>>
+UC16 ..> UC4 : <<extends>>
+UC20 ..> UC4 : <<extends>>
+UC21 ....> UC14: <<extends>>
+UC8  ..> UC3 : <<extends>>
+UC24 ...> UC5 : <<extends>>
+UC24 ..> UC8 : <<includes>>
+
+
+
+@enduml

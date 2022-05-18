@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controllers.AgentCommercialC">
+    <children>
+        <Button fx:id="GP" layoutX="88.0" layoutY="169.0" mnemonicParsing="false" onAction="#GestionDesProduitsBouton" prefHeight="98.0" prefWidth="344.0" text="Gestion des Produits " />
+        <Button fx:id="GC" layoutX="88.0" layoutY="316.0" mnemonicParsing="false" onAction="#GestionDeClienteleBouton" prefHeight="98.0" prefWidth="344.0" text="Gestion de clientèle" />
+<!--        <Button fx:id="GV" layoutX="88.0" layoutY="449.0" mnemonicParsing="false" onAction="#GestionDesVentesBouton" prefHeight="98.0" prefWidth="344.0" text="Gestion des ventes" />-->
+        <Label alignment="CENTER" layoutY="61.0" prefHeight="48.0" prefWidth="800.0" text="Bienvenue Mr.Agent Commercial" />
+        <Button fx:id="RTR" mnemonicParsing="false" onAction="#switchToPreviousScene" prefHeight="36.0" prefWidth="118.0" text="Retour" />
+    </children>
+</AnchorPane>
