@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane xmlns="http://javafx.com/javafx"
+            xmlns:fx="http://javafx.com/fxml"
+            fx:controller="Controllers.UIProduits"
+            prefHeight="400.0" prefWidth="600.0">
+    <children>
+        <TableView fx:id="TableProduit" layoutX="9.0" layoutY="169.0" prefHeight="357.0" prefWidth="866.0">
+            <columns>
+                <TableColumn fx:id="idTP" prefWidth="85.0" text="idProduit" />
+                <TableColumn fx:id="typeTP" prefWidth="65.0" text="Type" />
+                <TableColumn fx:id="refTP" prefWidth="90.0" text="Réference" />
+                <TableColumn fx:id="desTP" prefWidth="57.0" text="Designation" />
+                <TableColumn fx:id="vnTP" prefWidth="78.0" text="Valeur Nutritionnelle" />
+                <TableColumn fx:id="dptTP" prefWidth="75.0" text="Date production" />
+                <TableColumn fx:id="dprTP" prefWidth="75.0" text="Date Peremption" />
+                <TableColumn fx:id="poidsnTP" prefWidth="75.0" text="Poids net" />
+                <TableColumn fx:id="prixTP" prefWidth="75.0" text="Prix vente" />
+                <TableColumn fx:id="qntTP" prefWidth="75.0" text="Quantité" />
+                <TableColumn fx:id="ingdTP" prefWidth="115.0" text="Ingrédients" />
+            </columns>
+        </TableView>
+        <TextField fx:id="SearchTF" layoutX="365.0" layoutY="41.0" promptText="Chercher Produit" />
+        <Button fx:id="SearchBtn" layoutX="411.0" layoutY="91.0" mnemonicParsing="false" onAction="#SearchBtn" text="Chercher" />
+    </children>
+</AnchorPane>

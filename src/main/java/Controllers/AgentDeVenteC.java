@@ -29,8 +29,7 @@ public class AgentDeVenteC {
         this.agentDeVente = agentDeVente;
     }
 
-    public void GestionDesProduitsBouton()
-    {
+    public void GestionDesProduitsBouton() throws SQLException {
         Stage stage =(Stage)this.GP.getScene().getWindow();
         stage.close();
 
@@ -42,6 +41,8 @@ public class AgentDeVenteC {
 //            scene.getStylesheets().add(getClass().getResource("application.css").toExternalForm());
             primaryStage.setScene(scene);
             primaryStage.show();
+            ///////////////
+
 
         } catch (Exception e) {
             System.out.println("Vous avez un probleme avec GestionProduits/UIProduits.fxml");

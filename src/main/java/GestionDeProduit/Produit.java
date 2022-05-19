@@ -1,18 +1,39 @@
 package GestionDeProduit;
 
+import javafx.beans.property.*;
+
 public class Produit {
 
+
+
     private int id_produit;
-        private int id_type;
-        private String reference;
-        private String designation;
-        private String valeur_nutritionnelle;
-        private String date_production;
-        private String date_peremption;
-        private float poids_net;
-        private double prix_vente;
-        private int quantite;
-        private String ingredients;
+    private int id_type;
+
+    private String type;
+    private String reference;
+    private String designation;
+    private String valeur_nutritionnelle;
+    private String date_production;
+    private String date_peremption;
+    private float poids_net;
+    private double prix_vente;
+    private int quantite;
+    private String ingredients;
+
+
+    //  private IntegerProperty id_produitP = new SimpleIntegerProperty();
+    //  private IntegerProperty id_typeP = new SimpleIntegerProperty();
+    //  private StringProperty referenceP = new SimpleStringProperty();
+    //  private StringProperty designationP = new SimpleStringProperty();
+    //  private StringProperty valeur_nutritionnelleP = new SimpleStringProperty();
+    //  private StringProperty date_productionP = new SimpleStringProperty();
+    //  private StringProperty date_peremptionP = new SimpleStringProperty();
+    //  private FloatProperty poids_netP = new SimpleFloatProperty();
+    //  private DoubleProperty prix_venteP = new SimpleDoubleProperty();
+    //  private IntegerProperty quantiteP = new SimpleIntegerProperty();
+    //  private StringProperty ingredientsP = new SimpleStringProperty();
+
+
 
     public int getId_produit() {
         return id_produit;
@@ -28,6 +49,14 @@ public class Produit {
 
     public void setId_type(int id_type) {
         this.id_type = id_type;
+    }
+
+    public String getType() {
+        return type;
+    }
+
+    public void setType(String type) {
+        this.type = type;
     }
 
     public String getReference() {

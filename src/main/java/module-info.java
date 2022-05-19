@@ -11,4 +11,6 @@ module com.example.projectgl {
 
     opens Controllers to javafx.fxml;
     exports Controllers;
+    opens GestionDeProduit to javafx.fxml;
+    exports GestionDeProduit;
 }
