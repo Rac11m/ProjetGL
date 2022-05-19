@@ -23,7 +23,9 @@ import java.sql.SQLException;
 import java.util.ResourceBundle;
 
 public class UIProduits implements Initializable {
+
     Connection conn = null;
+
     @FXML
     private Button SearchBtn;
 
@@ -157,6 +159,7 @@ public class UIProduits implements Initializable {
                 pr2.close();
                 assert  rs2 != null;
                 rs2.close();
+                conn.close();
             }
         }
     }
@@ -231,6 +234,7 @@ public class UIProduits implements Initializable {
                 pr2.close();
                 assert  rs2 != null;
                 rs2.close();
+                conn.close();
             }
         }
     }

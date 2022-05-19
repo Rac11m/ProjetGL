@@ -7,10 +7,9 @@
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
 
-
 <AnchorPane prefHeight="563.0" prefWidth="804.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GestionDeProduit.AddProducts">
    <children>
-      <TextField layoutX="197.0" layoutY="61.0" prefHeight="24.0" prefWidth="115.0" />
+      <TextField fx:id="refTF" layoutX="197.0" layoutY="61.0" prefHeight="24.0" prefWidth="115.0" />
       <Label layoutX="34.0" layoutY="31.0" text="Type:" />
       <Label layoutX="197.0" layoutY="31.0" text="reference:" />
       <Label layoutX="357.0" layoutY="31.0" text="designation" />
@@ -21,15 +20,15 @@
       <Label layoutX="580.0" layoutY="111.0" text="prix:" />
       <Label layoutX="23.0" layoutY="207.0" text="quantite:" />
       <Label layoutX="198.0" layoutY="199.0" text="ingredients:" />
-      <TextField layoutX="348.0" layoutY="61.0" prefHeight="24.0" prefWidth="147.0" />
-      <TextField layoutX="576.0" layoutY="61.0" prefHeight="24.0" prefWidth="147.0" />
-      <TextField layoutX="580.0" layoutY="135.0" prefHeight="24.0" prefWidth="147.0" />
-      <TextField layoutX="362.0" layoutY="135.0" prefHeight="24.0" prefWidth="147.0" />
-      <TextField layoutX="192.0" layoutY="232.0" prefHeight="24.0" prefWidth="147.0" />
-      <TextField layoutX="18.0" layoutY="232.0" prefHeight="24.0" prefWidth="147.0" />
-      <DatePicker layoutX="34.0" layoutY="147.0" prefHeight="24.0" prefWidth="139.0" />
-      <DatePicker layoutX="208.0" layoutY="147.0" prefHeight="24.0" prefWidth="115.0" />
-      <Button layoutX="357.0" layoutY="348.0" mnemonicParsing="false" text="Ajouter!" />
+      <TextField fx:id="desTF" layoutX="348.0" layoutY="61.0" prefHeight="24.0" prefWidth="147.0" />
+      <TextField fx:id="vnTF" layoutX="576.0" layoutY="61.0" prefHeight="24.0" prefWidth="147.0" />
+      <TextField fx:id="prixTF" layoutX="580.0" layoutY="135.0" prefHeight="24.0" prefWidth="147.0" />
+      <TextField fx:id="pnTF" layoutX="362.0" layoutY="135.0" prefHeight="24.0" prefWidth="147.0" />
+      <TextField fx:id="ingdTF" layoutX="192.0" layoutY="232.0" prefHeight="24.0" prefWidth="147.0" />
+      <TextField fx:id="qntTF" layoutX="18.0" layoutY="232.0" prefHeight="24.0" prefWidth="147.0" />
+      <DatePicker fx:id="dateProTF" layoutX="34.0" layoutY="147.0" prefHeight="24.0" prefWidth="139.0" />
+      <DatePicker fx:id="datePrmTF" layoutX="208.0" layoutY="147.0" prefHeight="24.0" prefWidth="115.0" />
+      <Button fx:id="ajtBTN" layoutX="357.0" layoutY="348.0" mnemonicParsing="false" onAction="#Add" text="Ajouter!" />
       <ChoiceBox fx:id="typePchbox" layoutX="29.0" layoutY="61.0" prefWidth="150.0" />
    </children>
 </AnchorPane>

@@ -131,4 +131,37 @@ public class Produit {
         this.ingredients = ingredients;
     }
 
+    public void TypeToID(){
+        switch (this.type){
+            case "Lait Cru":
+                this.id_type=1;
+                break;
+            case "Lait Pasterisé":
+                this.id_type=2;
+                break;
+            case "Lait Stérilisé":
+                this.id_type=3;
+                break;
+            case "Lait UHT":
+                this.id_type=4;
+                break;
+            case "Lait Concentré":
+                this.id_type=5;
+                break;
+            case "Fromage":
+                this.id_type=6;
+                break;
+            case "Yaourt":
+                this.id_type=7;
+                break;
+            case "Beurre":
+                this.id_type=8;
+                break;
+            case "Crème Fraîche":
+                this.id_type=9;
+                break;
+        }
+
+    }
+
 }
