@@ -6,7 +6,6 @@ public enum TypeProduit {
         public String toString(){
             return "Lait Cru";
         }
-
     },
     Lait_Pasterise{
         public String toString(){
@@ -42,23 +41,21 @@ public enum TypeProduit {
             return super.toString();
         }
     },
+    Yaourt{
+        @Override
+        public String toString(){
+            return super.toString();
+        }
+    },
     CremeFraiche{
         @Override
         public String toString() {
             return "Crème Fraîche";
         }
     };
-    /*  Lait_Cru("Lait Cru"),
-    Lait_Pasterise("Lait Pasterisé"),
-    Lait_Sterilise("Lait Stérilisé"),
-    Lait_UHT("Lait UHT"),
-    Lait_Concentre("Lait Concentré"),
-    Fromage("Fromage"),
-    Yaourt("Yaourt"),
-    Beurre("Beurre"),
-    CremeFraiche("Crème Fraîche");
 
-    private final String text;
+
+  /*  private final String text;
 
     private TypeProduit(final String text){
         this.text = text;

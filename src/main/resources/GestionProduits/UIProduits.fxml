@@ -3,11 +3,11 @@
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane prefHeight="600.0" prefWidth="901.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controllers.UIProduits">
+<AnchorPane prefHeight="720.0" prefWidth="1280.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controllers.UIProduits">
    <children>
       <Button fx:id="ajtBtn" layoutX="332.0" layoutY="159.0" mnemonicParsing="false" onAction="#AddProductScene" prefHeight="121.0" prefWidth="238.0" text="AJOUTER PRODUIT" />
       <Button fx:id="mdfBtn" layoutX="332.0" layoutY="300.0" mnemonicParsing="false" onAction="#ModifyProductScene" prefHeight="121.0" prefWidth="238.0" text="MODIFIER PRODUIT" />
       <Button fx:id="sprBtn" layoutX="332.0" layoutY="447.0" mnemonicParsing="false" onAction="#DeleteProductScene" prefHeight="121.0" prefWidth="238.0" text="SUPPRIMER PRODUIT" />
-      <Button fx:id="shwBtn" layoutX="332.0" layoutY="22.0" mnemonicParsing="false" onAction="#ShowProductScene" prefHeight="121.0" prefWidth="238.0" text="AFFICHER PRODUIT" />
+      <Button fx:id="shwBtn" layoutX="332.0" layoutY="22.0" mnemonicParsing="false" onAction="#ShowProductScene"  prefHeight="121.0" prefWidth="238.0" text="AFFICHER PRODUIT" />
    </children>
 </AnchorPane>

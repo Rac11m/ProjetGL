@@ -4,12 +4,15 @@ import DBUtil.DBConnection;
 import javafx.collections.FXCollections;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
-import javafx.scene.control.Button;
-import javafx.scene.control.ChoiceBox;
-import javafx.scene.control.DatePicker;
-import javafx.scene.control.TextField;
+import javafx.scene.Node;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
+import javafx.scene.control.*;
+import javafx.stage.Stage;
 
+import java.io.IOException;
 import java.net.URL;
 import java.sql.*;
 import java.util.ResourceBundle;
@@ -17,6 +20,9 @@ import java.util.ResourceBundle;
 public class AddProducts implements Initializable {
 
     Connection connection;
+    private Stage stage;
+    private Scene scene;
+    private Parent root;
     @FXML
     private Button ajtBTN;
 
@@ -49,7 +55,11 @@ public class AddProducts implements Initializable {
     @FXML
     private TextField vnTF;
 
+    @FXML
+    private Button retourBtn;
 
+    @FXML
+    private Label statusLabel;
 
     public void initialize(URL location, ResourceBundle resources){
           this.typePchbox.setItems(FXCollections.observableArrayList(TypeProduit.values()));
@@ -66,32 +76,28 @@ public class AddProducts implements Initializable {
         return this.connection != null;
     }
 
-    public int chercherProduit(String designation) throws  Exception{
+    public boolean chercherProduit(String designation,String reference) throws  Exception{
         PreparedStatement pr=null;
         ResultSet rs=null;
-
-        String sql="select * from Patient where Designation = ?";//On utilise le numero de telephone du patient car c'est la seul donnée de la table qui est obligatoirement unique
+        String sql="select * from Produits where designation = ? and reference = ?";//On utilise le numero de telephone du patient car c'est la seul donnée de la table qui est obligatoirement unique
 
         try{
+            this.connection = DBConnection.connectionBD();
             pr=this.connection.prepareStatement(sql);
             pr.setString(1,designation);
-
+            pr.setString(2,reference);
             rs = pr.executeQuery();
-
-
             if (rs.next()){
-
-                return rs.getInt("id_produit");// dans le cas ou le patient existe dans la BDD on retourne son code
+                return true;// dans le cas ou le patient existe dans la BDD on retourne son code
             }
             else{
-
-                return 0;// sinon on retourne 0
+                return false;// sinon on retourne 0
             }
         }catch (SQLException e)
         {
 
-            System.out.println("Vous avez un probleme dans la classe Secretaire methode chercher patient");
-            return 0;
+            System.out.println("Vous avez un probleme dans la classe Secretaire methode chercher produits");
+            return false;
         }
         finally {
             assert pr != null;
@@ -103,17 +109,14 @@ public class AddProducts implements Initializable {
     }
 
 
-   public void Add(ActionEvent event){
-
-        int st = 0;
+   public void Add(ActionEvent event) throws SQLException {
+       PreparedStatement pr=null;
+       String sql="insert into produits (id_type,reference,designation,\"valeur-nutritionnelle\",\"date-production\",\"date-peremption\",\"poids-net\",\"prix-vente\",quantite,ingredients)values (?,?,?,?,?,?,?,?,?,?)";
         try {
-            String sql="insert into produits (id_type,reference,designation,\"valeur-nutritionnelle\",\"date-production\",\"date-peremption\",\"poids-net\",\"prix-vente\",quantite,ingredients)values (?,?,?,?,?,?,?,?,?,?)";
             this.connection = DBConnection.connectionBD();
-            PreparedStatement pr=null;
-            ResultSet rs=null;
             pr = connection.prepareStatement(sql);
             Produit p = new Produit();
-
+            if (!this.chercherProduit(this.desTF.getText(),this.refTF.getText())) {
             p.setType(this.typePchbox.getValue().toString());
             p.TypeToID();
             p.setReference(this.refTF.getText());
@@ -126,20 +129,38 @@ public class AddProducts implements Initializable {
             p.setQuantite(Integer.parseInt(this.qntTF.getText()));
             p.setIngredients(this.ingdTF.getText());
 
-            pr.setInt(1,p.getId_type());
-            pr.setString(2,p.getReference());
-            pr.setString(3,p.getDesignation());
-            pr.setString(4,p.getValeur_nutritionnelle());
-            pr.setString(5,p.getDate_production());
-            pr.setString(6,p.getDate_peremption());
-            pr.setFloat(7,p.getPoids_net());
-            pr.setDouble(8,p.getPrix_vente());
-            pr.setInt(9,p.getQuantite());
-            pr.setString(10,p.getIngredients());
-            pr.executeUpdate();
+                pr.setInt(1, p.getId_type());
+                pr.setString(2, p.getReference());
+                pr.setString(3, p.getDesignation());
+                pr.setString(4, p.getValeur_nutritionnelle());
+                pr.setString(5, p.getDate_production());
+                pr.setString(6, p.getDate_peremption());
+                pr.setFloat(7, p.getPoids_net());
+                pr.setDouble(8, p.getPrix_vente());
+                pr.setInt(9, p.getQuantite());
+                pr.setString(10, p.getIngredients());
+                pr.executeUpdate();
+                this.statusLabel.setText("Produit créé avec succès !");
+            }else {
+                this.statusLabel.setText("Produit existe déja !");
+                }
         }catch (Exception e){
             e.printStackTrace();
+        }finally {
+            assert pr != null;
+            pr.close();
+            this.connection.close();
         }
 
     }
+
+
+    public void switchToPreviousScene(ActionEvent event) throws IOException {
+        root = FXMLLoader.load(getClass().getResource("/GestionProduits/UIProduits.fxml"));
+        stage = (Stage)((Node)event.getSource()).getScene().getWindow();
+        scene = new Scene(root);
+        stage.setScene(scene);
+        stage.show();
+    }
+
 }
