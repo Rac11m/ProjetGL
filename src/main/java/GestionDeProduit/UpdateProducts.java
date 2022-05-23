@@ -70,7 +70,7 @@ public class UpdateProducts implements Initializable {
         this.connection = DBConnection.connectionBD();
         PreparedStatement pr=null;
         ResultSet rs=null;
-        String sql="select * from Produits where reference = ?";//On utilise le numero de telephone du patient car c'est la seul donnée de la table qui est obligatoirement unique
+        String sql="select * from Produits where reference = ?";//On utilise la reference du produit car c'est la seul donnée de la table qui est obligatoirement unique
 
         try{
             pr=this.connection.prepareStatement(sql);
@@ -80,14 +80,14 @@ public class UpdateProducts implements Initializable {
 
             if (rs.next()){
 
-                return true;// dans le cas ou le patient existe dans la BDD on retourne son code
+                return true;// dans le cas ou le produit existe dans la BDD on retourne son code
             }
             else{
 
                 return false;// sinon on retourne 0
             }
         }catch (SQLException e) {
-            System.out.println("Vous avez un probleme dans la classe Secretaire methode chercher produits");
+            System.out.println("Vous avez un probleme dans la classe produit methode chercher produits");
             return false;
         }catch (Exception e){
             e.printStackTrace();

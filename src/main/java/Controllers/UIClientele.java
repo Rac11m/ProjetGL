@@ -34,7 +34,9 @@ public class UIClientele implements Initializable {
     private Scene scene;
     private Stage stage;
 
-    public void initialize(URL location, ResourceBundle resouces){
+    @Override
+    public void initialize(URL url, ResourceBundle resourceBundle) {
+
     }
     public void ShowClientScene() throws SQLException {
         Stage stage = (Stage)this.shwBtn.getScene().getWindow();
@@ -52,6 +54,7 @@ public class UIClientele implements Initializable {
             e.printStackTrace();
         }
     }
+
     public void AddClientScene() throws SQLException{
         Stage stage = (Stage)this.ajtBtn.getScene().getWindow();
         stage.close();
@@ -110,5 +113,4 @@ public class UIClientele implements Initializable {
         stage.setScene(scene);
         stage.show();
     }
-
 }
