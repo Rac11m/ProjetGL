@@ -9,10 +9,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.Button;
-import javafx.scene.control.TableColumn;
-import javafx.scene.control.TableView;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Stage;
 
@@ -28,10 +25,12 @@ public class ShowProducts {
 
     ObservableList<Produit> prod = FXCollections.observableArrayList();
 
-    Connection conn = null;
+    Connection connection = null;
 
     @FXML
     private TextField SearchTF;
+    @FXML
+    private Label ChercherLabel;
 
     @FXML
     private TableView<Produit> TableProduit;
@@ -77,23 +76,60 @@ public class ShowProducts {
     }
     // RECHERCHER UN PRODUIT DANS LA BASE DE DONNEES
 
+    public boolean chercherProduit(String reference) throws  Exception{
+        PreparedStatement pr=null;
+        ResultSet rs=null;
+        String sql="select * from Produits where reference = ?";
 
-    public void SearchBtn() throws SQLException{
+        try{
+            this.connection = DBConnection.connectionBD();
+            pr=this.connection.prepareStatement(sql);
+//            pr.setString(1,designation);
+            pr.setString(1,reference);
+            rs = pr.executeQuery();
+            if (rs.next()){
+                return true;// dans le cas ou le produit existe dans la BDD on retourne son code
+            }
+            else{
+                return false;// sinon on retourne 0
+            }
+        }catch (SQLException e)
+        {
+
+            System.out.println("Vous avez un probleme dans la classe ShowProduit methode chercher produits");
+            return false;
+        }
+        finally {
+            assert pr != null;
+            pr.close();
+            assert rs!= null;
+            rs.close();
+        }
+
+    }
+
+    public void rechercheBtn() throws SQLException{
        try{
-            this.conn = DBConnection.connectionBD();
+            this.connection = DBConnection.connectionBD();
         } catch (SQLException e){
             e.printStackTrace();
         }
 
-        if(conn != null){
+        if(connection != null){
             PreparedStatement pr= null;
             ResultSet rs= null;
-            String sql="SELECT * FROM produits where reference = ? or designation = ?";
+            String sql="SELECT * FROM produits where reference = ?";
 
             try {
-                pr= conn.prepareStatement(sql);
+
+                String ref = this.SearchTF.getText();
+                if (this.chercherProduit(ref))
+                    ChercherLabel.setText("Le Produit existe dans la base de donnees.");
+                else
+                    ChercherLabel.setText("Le Produit n'existe pas !");
+
+                pr= connection.prepareStatement(sql);
                 pr.setString(1,SearchTF.getText());
-                pr.setString(2,SearchTF.getText());
                 rs= pr.executeQuery();
                 if(!prod.isEmpty()) prod.clear();
                 while (rs.next()) {
@@ -101,7 +137,6 @@ public class ShowProducts {
                     p.setId_produit(rs.getInt("id_produit"));
                     p.setId_type(rs.getInt("id_type"));
                     p.setType(this.PickTheRightType(p.getId_type()));
-                    //p.setType(rs2.getString("type"));
                     p.setReference(rs.getString("reference"));
                     p.setDesignation(rs.getString("designation"));
                     p.setValeur_nutritionnelle(rs.getString("valeur-nutritionnelle"));
@@ -135,23 +170,22 @@ public class ShowProducts {
                 pr.close();
                 assert rs != null;
                 rs.close();
-                this.conn.close();
+                this.connection.close();
             }
         }
     }
-    // AFFICHER TOUS LES PRODUITS DE LA BASE DE DONNEES
 
 
     public String PickTheRightType(int numeroType) throws SQLException {
         PreparedStatement pr = null;
         ResultSet rs=null;
         try {
-            this.conn = DBConnection.connectionBD();
+            this.connection = DBConnection.connectionBD();
 
 
             String sql = "select * from typeProduit where id_type = ?";
 
-            pr=conn.prepareStatement(sql);
+            pr= connection.prepareStatement(sql);
             pr.setInt(1,numeroType);
             rs=pr.executeQuery();
 
@@ -161,33 +195,33 @@ public class ShowProducts {
         }catch (SQLException e){
             e.printStackTrace();
         }finally {
-          pr.close();
-          rs.close();
-          this.conn.close();
+            pr.close();
+            rs.close();
+            this.connection.close();
         }
 
 
         return null;
     }
-
-
+    // AFFICHER TOUS LES PRODUITS DE LA BASE DE DONNEES
     public void LoadAll(ActionEvent event) throws SQLException{
        // prod.clear();
         PreparedStatement pr= null;
         ResultSet rs= null;
 
+        ChercherLabel.setText("");
 
         try{
-            this.conn = DBConnection.connectionBD();
+            this.connection = DBConnection.connectionBD();
         } catch (SQLException e){
             e.printStackTrace();
         }
 
-        if(conn != null){
+        if(connection != null){
             String sql="SELECT * FROM produits";
 
             try {
-                pr= conn.prepareStatement(sql);
+                pr= connection.prepareStatement(sql);
                 rs= pr.executeQuery();
                 if(!prod.isEmpty()) prod.clear();
                 while (rs.next()) {
@@ -210,15 +244,15 @@ public class ShowProducts {
                     idTP.setCellValueFactory(new PropertyValueFactory<Produit, Integer>("id_produit"));
                     //typeTP.setCellValueFactory(new PropertyValueFactory<Produit, Integer>("id_type"));
                     typeTP.setCellValueFactory(new PropertyValueFactory<Produit, String>("type"));
-                    desTP.setCellValueFactory(new PropertyValueFactory<Produit, String>("designation"));
-                    dprTP.setCellValueFactory(new PropertyValueFactory<Produit, String>("date_peremption"));
-                    dptTP.setCellValueFactory(new PropertyValueFactory<Produit, String>("date_production"));
-                    ingdTP.setCellValueFactory(new PropertyValueFactory<Produit, String>("ingredients"));
-                    poidsnTP.setCellValueFactory(new PropertyValueFactory<Produit, Float>("poids_net"));
-                    qntTP.setCellValueFactory(new PropertyValueFactory<Produit, Integer>("quantite"));
-                    vnTP.setCellValueFactory(new PropertyValueFactory<Produit, String>("valeur_nutritionnelle"));
-                    prixTP.setCellValueFactory(new PropertyValueFactory<Produit, Double>("prix_vente"));
                     refTP.setCellValueFactory(new PropertyValueFactory<Produit, String>("reference"));
+                    desTP.setCellValueFactory(new PropertyValueFactory<Produit, String>("designation"));
+                    vnTP.setCellValueFactory(new PropertyValueFactory<Produit, String>("valeur_nutritionnelle"));
+                    dptTP.setCellValueFactory(new PropertyValueFactory<Produit, String>("date_production"));
+                    dprTP.setCellValueFactory(new PropertyValueFactory<Produit, String>("date_peremption"));
+                    poidsnTP.setCellValueFactory(new PropertyValueFactory<Produit, Float>("poids_net"));
+                    prixTP.setCellValueFactory(new PropertyValueFactory<Produit, Double>("prix_vente"));
+                    qntTP.setCellValueFactory(new PropertyValueFactory<Produit, Integer>("quantite"));
+                    ingdTP.setCellValueFactory(new PropertyValueFactory<Produit, String>("ingredients"));
                     TableProduit.setItems(prod);
                 }
             }catch (Exception e){
@@ -228,7 +262,7 @@ public class ShowProducts {
                 pr.close();
                 assert rs != null;
                 rs.close();
-                conn.close();
+                connection.close();
             }
         }
     }

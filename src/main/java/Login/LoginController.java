@@ -50,12 +50,6 @@ public class LoginController implements Initializable {
     }
 
     @FXML
-    private Label emlLabel;
-
-    @FXML
-    private Label passwordLabel;
-
-    @FXML
     private TextField passwordField;
 
     @FXML
@@ -63,9 +57,6 @@ public class LoginController implements Initializable {
 
     @FXML
     private Label LoginStatus;
-
-    @FXML
-    private Button switchbtn;
 
     private String[] profiles = {"AgentVente","Agent commercial", "Client", "Directeur"};
 

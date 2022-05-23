@@ -9,6 +9,6 @@
       <Button fx:id="mdfBtn" layoutX="332.0" layoutY="300.0" mnemonicParsing="false" onAction="#ModifyProductScene" prefHeight="121.0" prefWidth="238.0" text="MODIFIER PRODUIT" />
       <Button fx:id="sprBtn" layoutX="332.0" layoutY="447.0" mnemonicParsing="false" onAction="#DeleteProductScene" prefHeight="121.0" prefWidth="238.0" text="SUPPRIMER PRODUIT" />
       <Button fx:id="shwBtn" layoutX="332.0" layoutY="22.0" mnemonicParsing="false" onAction="#ShowProductScene" prefHeight="121.0" prefWidth="238.0" text="AFFICHER PRODUIT" />
-      <Button layoutY="-1.0" mnemonicParsing="false" onAction="#switchToPreviousScene" prefHeight="53.0" prefWidth="116.0" text="Retour" />
+      <Button fx:id="retourBtn" layoutX="-2.0" mnemonicParsing="false" onAction="#switchToPreviousScene" text="Retour" />
    </children>
 </AnchorPane>

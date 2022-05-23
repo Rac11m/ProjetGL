@@ -4,6 +4,7 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
 
 <AnchorPane prefHeight="821.0" prefWidth="1400.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GestionDeClient.UpdateClients">
     <children>
@@ -18,13 +19,16 @@
         <TextField fx:id="adresse" layoutX="590.0" layoutY="250.0" prefHeight="24.0" prefWidth="147.0" />
         <TextField fx:id="tel" layoutX="199.0" layoutY="322.0" prefHeight="24.0" prefWidth="147.0" />
         <TextField fx:id="email" layoutX="23.0" layoutY="322.0" prefHeight="24.0" prefWidth="147.0" />
-        <Label fx:id="statusLabel" alignment="CENTER" layoutX="449.0" layoutY="549.0" prefHeight="33.0" prefWidth="383.0" />
+        <Label fx:id="statusLabel" alignment="CENTER" layoutX="469.0" layoutY="441.0" prefHeight="62.0" prefWidth="263.0">
+         <font>
+            <Font size="14.0" />
+         </font></Label>
       <Label layoutX="26.0" layoutY="213.0" text="Nom" />
       <Label layoutX="203.0" layoutY="213.0" text="Prenom" />
       <TextField fx:id="nom" layoutX="23.0" layoutY="250.0" prefHeight="24.0" prefWidth="147.0" />
       <TextField fx:id="prenom" layoutX="199.0" layoutY="250.0" prefHeight="24.0" prefWidth="147.0" />
       <Button layoutX="689.0" layoutY="45.0" mnemonicParsing="false" onAction="#rechercheBtn" text="Chercher" />
-      <Label fx:id="ChercherLabel" alignment="CENTER" layoutY="97.0" prefHeight="33.0" prefWidth="834.0" />
+      <Label fx:id="ChercherLabel" alignment="CENTER" layoutY="97.0" prefHeight="50.0" prefWidth="770.0" />
     </children>
 
 </AnchorPane>

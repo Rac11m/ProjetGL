@@ -6,20 +6,38 @@
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
 
 <AnchorPane prefHeight="821.0" prefWidth="1400.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GestionDeProduit.DeleteProducts">
    <children>
-      <Button fx:id="retourBtn" mnemonicParsing="false" onAction="#switchToPreviousScene" text="Retour" />
-      <Label fx:id="StautsLabel" alignment="CENTER" layoutX="363.0" layoutY="605.0" prefHeight="16.0" prefWidth="510.0" text="" />
-      <TextField fx:id="SearchTF" alignment="CENTER" layoutX="379.0" layoutY="174.0" prefHeight="24.0" prefWidth="452.0" promptText="chercher le produit a supprimer" />
-      <Button fx:id="SearchBtn" layoutX="578.0" layoutY="235.0" mnemonicParsing="false" onAction="#Delete" text="Button" />
-      <TableView fx:id="SuppTV" layoutX="287.0" layoutY="290.0" prefHeight="200.0" prefWidth="705.0">
-        <columns>
-          <TableColumn fx:id="IDcol" prefWidth="107.0" text="ID" />
-          <TableColumn fx:id="refCol" prefWidth="152.0" text="REFERENCE" />
-            <TableColumn fx:id="desCol" prefWidth="201.0" text="DESIGNATION" />
-            <TableColumn fx:id="SuppIcon" prefWidth="244.0" text="Supprimer" />
-        </columns>
-      </TableView>
+       <Button fx:id="retourBtn" layoutX="-2.0" mnemonicParsing="false" onAction="#switchToPreviousScene" text="Retour" />
+       <Label fx:id="StautsLabel" alignment="CENTER" layoutY="657.0" prefHeight="66.0" prefWidth="1608.0" text="">
+           <font>
+               <Font size="14.0" />
+           </font>
+       </Label>
+       <TextField fx:id="SearchTF" alignment="CENTER" layoutX="578.0" layoutY="96.0" prefHeight="32.0" prefWidth="452.0" promptText="Entrer la reference du produit a supprimer" />
+       <Button fx:id="SearchBtn" layoutX="761.0" layoutY="507.0" mnemonicParsing="false" onAction="#Delete" text="Supprimer" />
+       <TableView fx:id="SuppTV" layoutX="60.0" layoutY="290.0" prefHeight="200.0" prefWidth="1484.0">
+           <columns>
+               <TableColumn fx:id="idTP" prefWidth="72.0" text="idProduit" />
+               <TableColumn fx:id="typeTP" prefWidth="127.0" text="Type" />
+               <TableColumn fx:id="refTP" prefWidth="104.0" text="Réference" />
+               <TableColumn fx:id="desTP" prefWidth="121.0" text="Designation" />
+               <TableColumn fx:id="vnTP" prefWidth="164.0" text="Valeur Nutritionnelle" />
+               <TableColumn fx:id="dptTP" prefWidth="157.0" text="Date production" />
+               <TableColumn fx:id="dprTP" prefWidth="142.0" text="Date Peremption" />
+               <TableColumn fx:id="poidsnTP" prefWidth="117.0" text="Poids net" />
+               <TableColumn fx:id="prixTP" prefWidth="90.0" text="Prix vente" />
+               <TableColumn fx:id="qntTP" prefWidth="95.0" text="Quantité" />
+               <TableColumn fx:id="ingdTP" prefWidth="293.0" text="Ingrédients" />
+           </columns>
+       </TableView>
+       <Button fx:id="searchTF" layoutX="1135.0" layoutY="96.0" mnemonicParsing="false" onAction="#rechercheBtn" prefHeight="32.0" prefWidth="96.0" text="Chercher" />
+       <Label fx:id="ChercherLabel" alignment="CENTER" layoutY="174.0" prefHeight="76.0" prefWidth="1608.0">
+           <font>
+               <Font size="20.0" />
+           </font>
+       </Label>
    </children>
 </AnchorPane>

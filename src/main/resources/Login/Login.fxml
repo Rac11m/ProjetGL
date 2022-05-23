@@ -3,23 +3,36 @@
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.ChoiceBox?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
 <AnchorPane fx:id="anchrPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="821.0" prefWidth="1400.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Login.LoginController">
    <children>
-      <Label fx:id="bienvueLabel" alignment="CENTER" contentDisplay="CENTER" layoutY="44.0" prefHeight="16.0" prefWidth="800.0" text="BIENVENUE" textFill="#00a2c6">
+      <Label fx:id="bienvueLabel" alignment="CENTER" contentDisplay="CENTER" layoutX="-2.0" layoutY="141.0" prefHeight="61.0" prefWidth="1400.0" text="BIENVENUE" textFill="#00a2c6">
          <font>
             <Font name="DejaVu Sans Bold" size="50.0" />
          </font>
       </Label>
-      <TextField fx:id="emlField" layoutX="315.0" layoutY="197.0" />
-      <TextField fx:id="passwordField" layoutX="315.0" layoutY="265.0" />
-      <Label fx:id="emlLabel" layoutX="315.0" layoutY="181.0" text="Email" />
-      <Label fx:id="passwordLabel" layoutX="315.0" layoutY="249.0" text="Password" />
-      <Button fx:id="btnLogin" layoutX="315.0" layoutY="382.0" mnemonicParsing="false" onAction="#Login" text="Login" />
-      <ChoiceBox fx:id="chcBox" layoutX="315.0" layoutY="319.0" prefWidth="150.0" value="choixUn" />
-      <Label fx:id="LoginStatus" alignment="CENTER" layoutY="543.0" prefHeight="16.0" prefWidth="800.0" />
+      <TextField fx:id="emlField" layoutX="577.0" layoutY="262.0" prefHeight="31.0" prefWidth="242.0" />
+      <Label fx:id="emlLabel" layoutX="579.0" layoutY="235.0" text="Email">
+         <font>
+            <Font name="DejaVu Sans Bold" size="16.0" />
+         </font></Label>
+      <Label fx:id="passwordLabel" layoutX="579.0" layoutY="309.0" text="Password">
+         <font>
+            <Font name="DejaVu Sans Bold" size="16.0" />
+         </font></Label>
+      <ChoiceBox fx:id="chcBox" layoutX="577.0" layoutY="387.0" prefHeight="24.0" prefWidth="242.0" value="choixUn" />
+      <Button fx:id="btnLogin" layoutX="640.0" layoutY="447.0" mnemonicParsing="false" onAction="#Login" prefHeight="40.0" prefWidth="116.0" text="Login">
+         <font>
+            <Font name="DejaVu Serif Bold" size="20.0" />
+         </font></Button>
+      <Label fx:id="LoginStatus" alignment="CENTER" layoutY="543.0" prefHeight="67.0" prefWidth="1400.0">
+         <font>
+            <Font name="System Bold" size="14.0" />
+         </font></Label>
+      <PasswordField fx:id="passwordField" layoutX="579.0" layoutY="338.0" prefHeight="31.0" prefWidth="242.0" />
    </children>
 </AnchorPane>

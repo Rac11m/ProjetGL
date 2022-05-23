@@ -11,6 +11,6 @@
         <Button fx:id="VP" layoutX="88.0" layoutY="169.0" mnemonicParsing="false" onAction="#VoirListeProduits" prefHeight="98.0" prefWidth="344.0" text="Voir liste des produits " />
         <Button fx:id="PC" layoutX="88.0" layoutY="316.0" mnemonicParsing="false" onAction="#PasserCommande" prefHeight="98.0" prefWidth="344.0" text="Passer commande" />
         <Label alignment="CENTER" layoutY="61.0" prefHeight="48.0" prefWidth="800.0" text="Bienvenue Mr.Client" />
-        <Button fx:id="RTR" mnemonicParsing="false" onAction="#switchToPreviousScene" prefHeight="36.0" prefWidth="118.0" text="Retour" />
+        <Button fx:id="retourBtn" layoutX="-1.0" mnemonicParsing="false" onAction="#switchToPreviousScene" text="Retour" />
     </children>
 </AnchorPane>

@@ -89,7 +89,6 @@ public class UpdateClients implements Initializable {
 
         }catch (SQLException e)
         {
-
             System.out.println("Vous avez un probleme dans la classe UpdateClients methode chercher Client");
             return false;
         }

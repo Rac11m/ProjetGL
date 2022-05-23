@@ -56,7 +56,7 @@ public class ShowClients {
     public boolean chercherClient(String email) throws  Exception{
         PreparedStatement pr=null;
         ResultSet rs=null;
-        String sql="select * from client where email = ?";//On utilise l'email du client patient car c'est la seul donnée de la table qui est obligatoirement unique
+        String sql="select * from client where email = ?";//On utilise l'email du client car c'est la seul donnée de la table qui est obligatoirement unique
 
         try{
             this.connection = DBConnection.connectionBD();

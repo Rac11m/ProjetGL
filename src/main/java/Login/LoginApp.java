@@ -13,7 +13,7 @@ public class LoginApp extends javafx.application.Application {
     public void start(Stage stage) throws IOException {
         try {
             FXMLLoader fxmlLoader = new FXMLLoader(LoginApp.class.getResource("Login.fxml"));
-            Scene scene = new Scene(fxmlLoader.load(), 800, 600);
+            Scene scene = new Scene(fxmlLoader.load(), 1400, 820);
             stage.setTitle("Bienvenue!");
             stage.setScene(scene);
             stage.show();

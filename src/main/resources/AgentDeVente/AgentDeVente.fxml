@@ -10,6 +10,6 @@
         <Button fx:id="GC" layoutX="88.0" layoutY="316.0" mnemonicParsing="false" onAction="#GestionDeClienteleBouton" prefHeight="98.0" prefWidth="344.0" text="Gestion de clientèle" />
         <Button fx:id="GV" layoutX="88.0" layoutY="449.0" mnemonicParsing="false" onAction="#GestionDesVentesBouton" prefHeight="98.0" prefWidth="344.0" text="Gestion des ventes" />
         <Label alignment="CENTER" layoutY="61.0" prefHeight="48.0" prefWidth="800.0" text="Bienvenue Mr.Agent de ventes" />
-      <Button fx:id="RTR" mnemonicParsing="false" onAction="#switchToPreviousScene" prefHeight="36.0" prefWidth="118.0" text="Retour" />
+        <Button fx:id="retourBtn" layoutX="-2.0" mnemonicParsing="false" onAction="#switchToPreviousScene" text="Retour" />
     </children>
 </AnchorPane>
