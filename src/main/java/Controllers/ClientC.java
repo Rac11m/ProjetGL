@@ -29,28 +29,26 @@ public class ClientC {
         this.client = client;
     }
 
-    public void VoirListeProduits()
-    {
+    public void VoirListeProduits() {
         Stage stage =(Stage)this.VP.getScene().getWindow();
         stage.close();
 
         try {
             Stage primaryStage =new Stage();
         //TODO
-            Parent root= FXMLLoader.load(getClass().getResource("/GestionProduits/UIProduits.fxml"));
+            Parent root= FXMLLoader.load(getClass().getResource("/Client/AfficherProduit.fxml"));
             Scene scene = new Scene(root);
 //            scene.getStylesheets().add(getClass().getResource("application.css").toExternalForm());
             primaryStage.setScene(scene);
             primaryStage.show();
 
         } catch (Exception e) {
-            System.out.println("Vous avez un probleme avec GestionProduits/UIProduits.fxml");
+            System.out.println("Vous avez un probleme avec GestionProduits/AfficherProduit.fxml");
             e.printStackTrace();
         }
     }
 
-    public void PasserCommande()
-    {
+    public void PasserCommande() {
         Stage stage =(Stage)this.PC.getScene().getWindow();
         stage.close();
 

@@ -19,6 +19,7 @@ import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 import methode.Agent;
 import methode.Client;
+import org.w3c.dom.Text;
 
 import java.net.URL;
 import java.sql.SQLException;
@@ -39,6 +40,14 @@ public class LoginController implements Initializable {
 
     @FXML
     private TextField emlField;
+
+    /* pour les commandes */
+
+    private static TextField emlFieldStatic = new TextField();
+
+    public static TextField getTextField(){
+        return emlFieldStatic;
+    }
 
     @FXML
     private Label emlLabel;
@@ -64,15 +73,7 @@ public class LoginController implements Initializable {
         // chcBox.getItems().addAll(profiles);
         this.chcBox.setItems(FXCollections.observableArrayList(option.values()));
 
-       /* try {
-           // NOMCLASSE.SuppRDVauto();
-            System.out.println(" ");
-            int i=1;
-        } catch (SQLException throwables) {
-            throwables.printStackTrace();
-        } catch (ClassNotFoundException e) {
-            e.printStackTrace();
-        }*/
+
     }
 
     @FXML
@@ -95,6 +96,7 @@ public class LoginController implements Initializable {
                         break;
                     case "Client":
                         ClientLogin();
+
                         break;
                 }
 
@@ -188,6 +190,8 @@ public class LoginController implements Initializable {
         ClientC cl= new ClientC();
         //crée mon objet client contenant ses info
         Client client =loginModel.getInfoClient(this.emlField.getText(), this.passwordField.getText());
+        emlFieldStatic.setText(this.emlField.getText());
+        System.out.println(emlFieldStatic.getText());
         cl.setClient(client);
 
         //afficher la fenetre principale du/de la client

@@ -21,6 +21,17 @@ public class Produit {
     private String ingredients;
 
 
+
+    private double prixCommande;
+
+    public double getPrixCommande() {
+        return prixCommande;
+    }
+
+    public void setPrixCommande(double prixCommande) {
+        this.prixCommande = prixCommande;
+    }
+
     //  private IntegerProperty id_produitP = new SimpleIntegerProperty();
     //  private IntegerProperty id_typeP = new SimpleIntegerProperty();
     //  private StringProperty referenceP = new SimpleStringProperty();

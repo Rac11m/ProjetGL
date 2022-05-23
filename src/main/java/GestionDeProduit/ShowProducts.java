@@ -243,4 +243,11 @@ public class ShowProducts {
         stage.setScene(scene);
         stage.show();
     }
+    public void switchToPreviousSceneClient(ActionEvent event) throws IOException {
+        root = FXMLLoader.load(getClass().getResource("/Client/Client.fxml"));
+        stage = (Stage)((Node)event.getSource()).getScene().getWindow();
+        scene = new Scene(root);
+        stage.setScene(scene);
+        stage.show();
+    }
 }
