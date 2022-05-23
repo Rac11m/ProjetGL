@@ -1,14 +1,37 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.lang.*?>
-<?import java.util.*?>
-<?import javafx.scene.*?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
 
-<AnchorPane xmlns="http://javafx.com/javafx"
-            xmlns:fx="http://javafx.com/fxml"
-            fx:controller="GestionDeClient.DeleteClients"
-            prefHeight="400.0" prefWidth="600.0">
+<AnchorPane prefHeight="821.0" prefWidth="1400.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GestionDeClient.DeleteClients">
+    <children>
+        <Button fx:id="retourBtn" mnemonicParsing="false" onAction="#switchToPreviousScene" text="Retour" />
+        <Label fx:id="StautsLabel" alignment="CENTER" layoutX="363.0" layoutY="605.0" prefHeight="16.0" prefWidth="510.0" text="" />
+        <TextField fx:id="SearchTF" alignment="CENTER" layoutX="578.0" layoutY="96.0" prefHeight="32.0" prefWidth="452.0" promptText="Entrer l'email du client a supprimer" />
+        <Button fx:id="SearchBtn" layoutX="761.0" layoutY="507.0" mnemonicParsing="false" onAction="#Delete" text="Supprimer" />
+        <TableView fx:id="TableClient" layoutX="60.0" layoutY="290.0" prefHeight="200.0" prefWidth="1484.0">
+            <columns>
+                <TableColumn fx:id="IDcol" prefWidth="47.0" text="ID" />
+                <TableColumn fx:id="typeCol" prefWidth="123.0" text="Type client" />
+                <TableColumn fx:id="nomCol" prefWidth="128.0" text="Nom" />
+                <TableColumn fx:id="prenomCol" prefWidth="143.0" text="Prenom" />
+                <TableColumn fx:id="emailCol" prefWidth="241.0" text="Email" />
+                <TableColumn fx:id="telCol" prefWidth="203.0" text="Telephone" />
+                <TableColumn fx:id="desCol" prefWidth="202.0" text="Designation" />
+                <TableColumn fx:id="AdrCol" prefWidth="396.0" text="Adresse" />
+            </columns>
+        </TableView>
+      <Button fx:id="searchTF" layoutX="1135.0" layoutY="96.0" mnemonicParsing="false" onAction="#rechercheBtn" prefHeight="32.0" prefWidth="96.0" text="Chercher" />
+      <Label fx:id="ChercherLabel" alignment="CENTER" layoutY="174.0" prefHeight="45.0" prefWidth="1608.0">
+         <font>
+            <Font size="20.0" />
+         </font>
+      </Label>
+    </children>
 
 </AnchorPane>

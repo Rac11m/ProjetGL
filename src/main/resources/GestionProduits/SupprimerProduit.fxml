@@ -7,7 +7,7 @@
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane prefHeight="720.0" prefWidth="1280.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GestionDeProduit.DeleteProducts">
+<AnchorPane prefHeight="821.0" prefWidth="1400.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GestionDeProduit.DeleteProducts">
    <children>
       <Button fx:id="retourBtn" mnemonicParsing="false" onAction="#switchToPreviousScene" text="Retour" />
       <Label fx:id="StautsLabel" alignment="CENTER" layoutX="363.0" layoutY="605.0" prefHeight="16.0" prefWidth="510.0" text="" />
@@ -18,7 +18,7 @@
           <TableColumn fx:id="IDcol" prefWidth="107.0" text="ID" />
           <TableColumn fx:id="refCol" prefWidth="152.0" text="REFERENCE" />
             <TableColumn fx:id="desCol" prefWidth="201.0" text="DESIGNATION" />
-            <TableColumn fx:id="SuppIcon" prefWidth="190.0" text="Supprimer" />
+            <TableColumn fx:id="SuppIcon" prefWidth="244.0" text="Supprimer" />
         </columns>
       </TableView>
    </children>

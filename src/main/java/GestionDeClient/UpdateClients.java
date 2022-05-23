@@ -129,13 +129,13 @@ public class UpdateClients implements Initializable {
                 pr.setString(7,this.searchTF.getText());
 
                 pr.executeUpdate();
-                this.statusLabel.setText("Produit modifié avec succès !");
+                this.statusLabel.setText("Client modifié avec succès !");
             }
 
         }catch (SQLException e){
             e.printStackTrace();
         } catch (Exception e) {
-            System.out.println("probleme de runtime");
+            System.out.println("Probleme de Runtime");
             throw new RuntimeException(e);
         }finally {
             assert pr != null;

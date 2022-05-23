@@ -31,9 +31,6 @@ public class ShowProducts {
     Connection conn = null;
 
     @FXML
-    private Button SearchBtn;
-
-    @FXML
     private TextField SearchTF;
 
     @FXML
