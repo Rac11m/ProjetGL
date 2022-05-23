@@ -55,8 +55,10 @@ public class UIClientele implements Initializable {
     public void AddClientScene() throws SQLException{
         Stage stage = (Stage)this.ajtBtn.getScene().getWindow();
         stage.close();
+
         try{
             Stage primaryStage= new Stage();
+
             Parent root= FXMLLoader.load(getClass().getResource("/GestionClientele/AjouterClient.fxml"));
             Scene scene = new Scene(root);
             primaryStage.setScene(scene);
@@ -102,7 +104,7 @@ public class UIClientele implements Initializable {
     }
 
     public void switchToPreviousScene(ActionEvent event) throws IOException {
-        root = FXMLLoader.load(getClass().getResource("/Login/Login.fxml"));
+        root = FXMLLoader.load(getClass().getResource("/AgentDeVente/AgentDeVente.fxml"));
         stage = (Stage)((Node)event.getSource()).getScene().getWindow();
         scene = new Scene(root);
         stage.setScene(scene);
