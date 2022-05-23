@@ -88,7 +88,7 @@ public class AddProducts implements Initializable {
             pr.setString(2,reference);
             rs = pr.executeQuery();
             if (rs.next()){
-                return true;// dans le cas ou le patient existe dans la BDD on retourne son code
+                return true;// dans le cas ou le produit existe dans la BDD on retourne son code
             }
             else{
                 return false;// sinon on retourne 0
@@ -96,7 +96,7 @@ public class AddProducts implements Initializable {
         }catch (SQLException e)
         {
 
-            System.out.println("Vous avez un probleme dans la classe Secretaire methode chercher produits");
+            System.out.println("Vous avez un probleme dans la classe AddProduit methode chercher produits");
             return false;
         }
         finally {

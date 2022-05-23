@@ -61,14 +61,14 @@ public class DeleteProducts {
 
             if (rs.next()){
 
-                return true;// dans le cas ou le patient existe dans la BDD on retourne son code
+                return true;// dans le cas ou le produit existe dans la BDD on retourne son code
             }
             else{
 
                 return false;// sinon on retourne 0
             }
         }catch (SQLException e) {
-            System.out.println("Vous avez un probleme dans la classe Secretaire methode chercher produits");
+            System.out.println("Vous avez un probleme dans la classe deleteProduit methode chercher produits");
             return false;
         }catch (Exception e){
           e.printStackTrace();

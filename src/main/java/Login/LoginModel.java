@@ -198,11 +198,11 @@ public class LoginModel {
                 rs_M= pr_M.executeQuery();
 
 
-                //je crйe l'objet medecin et je vais recupperer tt les info du medecin dиs qu'il se connect au logiciel pour renvoyer un objet medecin avec tt ses info
+                //je crйe l'objet Client et je vais recupperer tt les info du client dиs qu'il se connect au logiciel pour renvoyer un objet client avec tt ses info
                 Client client=new Client();
 
 
-                //affecter a notre objet medecin tt les donnйes recolter par le ResultSet
+                //affecter a notre objet client tt les donnйes recolter par le ResultSet
                 client.setId_client(String.valueOf(rs_M.getInt("id_client")));
                  client.setType_client(rs_M.getString("type_client"));
                 client.setNom(rs_M.getString("nom_client"));
@@ -218,7 +218,7 @@ public class LoginModel {
                 return client;
 
             } catch (SQLException e) {
-                System.out.println("Vous avez un probleme dans la classe LoginModel / getInfoAgent");
+                System.out.println("Vous avez un probleme dans la classe LoginModel / getInfoClient");
 
             }
             finally {

@@ -10,12 +10,14 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Stage;
 
+import java.io.IOException;
 import java.net.URL;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -42,45 +44,9 @@ public class UIProduits implements Initializable {
     @FXML
     private Button sprBtn;
 
-    @FXML
-    private TextField SearchTF;
-
-    @FXML
-    private TableView<Produit> TableProduit;
-
-    @FXML
-    private TableColumn<Produit, String> desTP;
-
-    @FXML
-    private TableColumn<Produit, String> dprTP;
-
-    @FXML
-    private TableColumn<Produit, String> dptTP;
-
-    @FXML
-    private TableColumn<Produit, Integer> idTP;
-
-    @FXML
-    private TableColumn<Produit, String> ingdTP;
-
-    @FXML
-    private TableColumn<Produit, Float> poidsnTP;
-
-    @FXML
-    private TableColumn<Produit, Double> prixTP;
-
-    @FXML
-    private TableColumn<Produit, Integer> qntTP;
-
-    @FXML
-    private TableColumn<Produit, String> refTP;
-
-    @FXML
-    private TableColumn<Produit, String> typeTP;
-
-    @FXML
-    private TableColumn<Produit, String> vnTP;
-
+    private Parent root;
+    private Stage stage;
+    private Scene scene;
 
 
     public void initialize(URL location, ResourceBundle resouces){
@@ -155,6 +121,13 @@ public class UIProduits implements Initializable {
         }
     }
 
+    public void switchToPreviousScene(ActionEvent event) throws IOException {
+        root = FXMLLoader.load(getClass().getResource("/AgentDeVente/AgentDeVente.fxml"));
+        stage = (Stage)((Node)event.getSource()).getScene().getWindow();
+        scene = new Scene(root);
+        stage.setScene(scene);
+        stage.show();
+    }
 
 
 }
