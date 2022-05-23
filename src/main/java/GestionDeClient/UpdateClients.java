@@ -1,6 +1,8 @@
 package GestionDeClient;
 
 import DBUtil.DBConnection;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -11,6 +13,7 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
+import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Stage;
 
 import java.io.IOException;
@@ -24,6 +27,8 @@ import java.util.ResourceBundle;
 public class UpdateClients implements Initializable {
 
     Connection connection;
+    Client c = new Client();
+
     private Stage stage;
     private Scene scene;
     private Parent root;
@@ -66,12 +71,22 @@ public class UpdateClients implements Initializable {
             pr=this.connection.prepareStatement(sql);
             pr.setString(1,email);
             rs = pr.executeQuery();
+                c.setId_client(rs.getInt("id_client"));
+                c.setType_client(rs.getString("type_client"));
+                c.setNom_client(rs.getString("nom_client"));
+                c.setPrenom_client(rs.getString("prenom_client"));
+                c.setEmail(rs.getString("email"));
+                c.setTel(rs.getString("tel"));
+                c.setDesignation(rs.getString("designation"));
+                c.setAdresse(rs.getString("adresse"));
+
             if (rs.next()){
                 return true;// dans le cas ou le client existe dans la BDD on retourne son code
             }
             else{
                 return false;// sinon on retourne 0
             }
+
         }catch (SQLException e)
         {
 
@@ -107,24 +122,30 @@ public class UpdateClients implements Initializable {
 
             if(this.chercherClient(this.searchTF.getText())){
 
-                if(this.nom.getText().length() != 0) {
+                if(this.nom.getText().length() != 0)
                     pr.setString(1,this.nom.getText());
-                }
-                if(this.prenom.getText().length() != 0) {
+                    else
+                        pr.setString(1,c.getNom_client());
+                if(this.prenom.getText().length() != 0)
                     pr.setString(2,this.prenom.getText());
-                }
-                if(this.des.getText().length() != 0){
+                    else
+                        pr.setString(2,c.getPrenom_client());
+                if(this.des.getText().length() != 0)
                     pr.setString(3, this.des.getText());
-                }
-                if(this.adresse.getText().length() != 0){
+                    else
+                        pr.setString(3,c.getDesignation());
+                if(this.adresse.getText().length() != 0)
                     pr.setString(4, this.adresse.getText());
-                }
-                if(this.email.getText().length() != 0){
+                    else
+                        pr.setString(4,c.getAdresse());
+                if(this.email.getText().length() != 0)
                     pr.setString(5, this.email.getText());
-                }
-                if(this.tel.getText().length() != 0) {
+                    else
+                        pr.setString(5,c.getEmail());
+                if(this.tel.getText().length() != 0)
                     pr.setString(6,this.tel.getText());
-                }
+                    else
+                        pr.setString(6,c.getTel());
 
                 pr.setString(7,this.searchTF.getText());
 

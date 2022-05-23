@@ -11,7 +11,10 @@
 <AnchorPane prefHeight="821.0" prefWidth="1400.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GestionDeClient.DeleteClients">
     <children>
         <Button fx:id="retourBtn" mnemonicParsing="false" onAction="#switchToPreviousScene" text="Retour" />
-        <Label fx:id="StautsLabel" alignment="CENTER" layoutX="363.0" layoutY="605.0" prefHeight="16.0" prefWidth="510.0" text="" />
+        <Label fx:id="StautsLabel" alignment="CENTER" layoutY="657.0" prefHeight="66.0" prefWidth="1608.0" text="">
+         <font>
+            <Font size="14.0" />
+         </font></Label>
         <TextField fx:id="SearchTF" alignment="CENTER" layoutX="578.0" layoutY="96.0" prefHeight="32.0" prefWidth="452.0" promptText="Entrer l'email du client a supprimer" />
         <Button fx:id="SearchBtn" layoutX="761.0" layoutY="507.0" mnemonicParsing="false" onAction="#Delete" text="Supprimer" />
         <TableView fx:id="TableClient" layoutX="60.0" layoutY="290.0" prefHeight="200.0" prefWidth="1484.0">
@@ -27,7 +30,7 @@
             </columns>
         </TableView>
       <Button fx:id="searchTF" layoutX="1135.0" layoutY="96.0" mnemonicParsing="false" onAction="#rechercheBtn" prefHeight="32.0" prefWidth="96.0" text="Chercher" />
-      <Label fx:id="ChercherLabel" alignment="CENTER" layoutY="174.0" prefHeight="45.0" prefWidth="1608.0">
+      <Label fx:id="ChercherLabel" alignment="CENTER" layoutY="174.0" prefHeight="76.0" prefWidth="1608.0">
          <font>
             <Font size="20.0" />
          </font>
