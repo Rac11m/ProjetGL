@@ -18,7 +18,7 @@ import java.sql.SQLException;
 
 public class DeleteProducts {
 
-    Connection connection;
+    Connection conn;
     private Stage stage;
     private Scene scene;
     private Parent root;
@@ -47,20 +47,17 @@ public class DeleteProducts {
     @FXML
     private Button retourBtn;
 
-    public boolean chercherProduit(String s) throws  Exception{
-        this.connection = DBConnection.connectionBD();
+    public boolean chercherProduit(String s) throws SQLException,Exception{
+        this.conn = DBConnection.connectionBD();
         PreparedStatement pr=null;
         ResultSet rs=null;
-
-        String sql="select * from Produits where designation = ? or reference = ?";//On utilise le numero de telephone du patient car c'est la seul donnée de la table qui est obligatoirement unique
+        String sql="select * from Produits where reference = ?";//On utilise le numero de telephone du patient car c'est la seul donnée de la table qui est obligatoirement unique
 
         try{
-            pr=this.connection.prepareStatement(sql);
+            pr=this.conn.prepareStatement(sql);
             pr.setString(1,s);
-            pr.setString(2,s);
 
             rs = pr.executeQuery();
-
 
             if (rs.next()){
 
@@ -70,32 +67,31 @@ public class DeleteProducts {
 
                 return false;// sinon on retourne 0
             }
-        }catch (SQLException e)
-        {
-
+        }catch (SQLException e) {
             System.out.println("Vous avez un probleme dans la classe Secretaire methode chercher produits");
             return false;
-        }
-        finally {
+        }catch (Exception e){
+          e.printStackTrace();
+        } finally {
             assert pr != null;
             pr.close();
             assert rs!= null;
             rs.close();
+            assert this.conn != null;
+            this.conn.close();
         }
-
+    return false;
     }
 
 
-    public void Delete(ActionEvent event) throws SQLException {
-        this.connection = DBConnection.connectionBD();
+    public void Delete(ActionEvent event) throws SQLException{
+        this.conn = DBConnection.connectionBD();
         PreparedStatement pr = null;
-        ResultSet rs = null;
+        String sql = "Delete from produits where reference = ?";
         try {
-            String sql = "Delete from Produits where designation = ? or reference = ?";
+            pr = conn.prepareStatement(sql);
+            pr.setString(1, this.SearchTF.getText());
             if (this.chercherProduit(this.SearchTF.getText())) {
-                pr = connection.prepareStatement(sql);
-                pr.setString(1, this.SearchTF.getText());
-                pr.setString(2, this.SearchTF.getText());
                 pr.executeUpdate();
                 this.StautsLabel.setText("Produit supprimé avec succès !");
             }
@@ -103,12 +99,11 @@ public class DeleteProducts {
             e.printStackTrace();
         }catch (Exception e) {
             throw new RuntimeException(e);
-        } finally {
+        }finally {
             assert pr != null;
             pr.close();
-            assert rs != null;
-            rs.close();
-            this.connection.close();
+            assert this.conn != null;
+            this.conn.close();
         }
     }
 

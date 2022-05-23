@@ -98,7 +98,7 @@ public class ShowProducts {
                 pr.setString(1,SearchTF.getText());
                 pr.setString(2,SearchTF.getText());
                 rs= pr.executeQuery();
-                if(prod.isEmpty()) prod.clear();
+                if(!prod.isEmpty()) prod.clear();
                 while (rs.next()) {
                     Produit p = new Produit();
                     p.setId_produit(rs.getInt("id_produit"));
@@ -138,7 +138,7 @@ public class ShowProducts {
                 pr.close();
                 assert rs != null;
                 rs.close();
-                conn.close();
+                this.conn.close();
             }
         }
     }
@@ -192,7 +192,7 @@ public class ShowProducts {
             try {
                 pr= conn.prepareStatement(sql);
                 rs= pr.executeQuery();
-                if(prod.isEmpty()) prod.clear();
+                if(!prod.isEmpty()) prod.clear();
                 while (rs.next()) {
                     Produit p = new Produit();
                     p.setId_produit(rs.getInt("id_produit"));

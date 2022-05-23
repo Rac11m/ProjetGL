@@ -10,7 +10,7 @@
 <AnchorPane prefHeight="720.0" prefWidth="1280.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GestionDeProduit.DeleteProducts">
    <children>
       <Button fx:id="retourBtn" mnemonicParsing="false" onAction="#switchToPreviousScene" text="Retour" />
-      <Label fx:id="StautsLabel" alignment="CENTER" layoutX="363.0" layoutY="605.0" prefHeight="16.0" prefWidth="510.0" text="Label" />
+      <Label fx:id="StautsLabel" alignment="CENTER" layoutX="363.0" layoutY="605.0" prefHeight="16.0" prefWidth="510.0" text="" />
       <TextField fx:id="SearchTF" alignment="CENTER" layoutX="379.0" layoutY="174.0" prefHeight="24.0" prefWidth="452.0" promptText="chercher le produit a supprimer" />
       <Button fx:id="SearchBtn" onAction="#Delete" layoutX="578.0" layoutY="235.0" mnemonicParsing="false" text="Button" />
       <TableView fx:id="SuppTV" layoutX="341.0" layoutY="290.0" prefHeight="200.0" prefWidth="537.0">
