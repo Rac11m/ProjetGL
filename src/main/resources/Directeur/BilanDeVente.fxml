@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.chart.CategoryAxis?>
+<?import javafx.scene.chart.LineChart?>
+<?import javafx.scene.chart.NumberAxis?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.layout.AnchorPane?>
+
+
+<AnchorPane prefHeight="821.0" prefWidth="1400.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GestionDirecteur.BilanDeVente">
+   <children>
+      <Button mnemonicParsing="false" onAction="#switchToPreviousScene" text="Retour" />
+      <LineChart fx:id="lineChart" layoutX="283.0" layoutY="184.0" prefHeight="514.0" prefWidth="789.0" title="Bilan ventes de l'année 2022">
+        <xAxis>
+          <CategoryAxis prefHeight="25.0" prefWidth="728.0" side="BOTTOM" />
+        </xAxis>
+        <yAxis>
+          <NumberAxis prefHeight="459.0" prefWidth="43.0" side="LEFT" />
+        </yAxis>
+      </LineChart>
+      <Button layoutX="647.0" layoutY="60.0" mnemonicParsing="false" onAction="#stat" text="Voir bilan" />
+   </children>
+</AnchorPane>

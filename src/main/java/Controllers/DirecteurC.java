@@ -76,14 +76,14 @@ public class DirecteurC {
         try {
             Stage primaryStage =new Stage();
 
-            Parent root= FXMLLoader.load(getClass().getResource("/GestionVentes/UIVentes.fxml"));
+            Parent root= FXMLLoader.load(getClass().getResource("/Directeur/BilanDeVente.fxml"));
             Scene scene = new Scene(root);
 //            scene.getStylesheets().add(getClass().getResource("application.css").toExternalForm());
             primaryStage.setScene(scene);
             primaryStage.show();
 
         } catch (Exception e) {
-            System.out.println("Vous avez un probleme avec GestionVentes/UIVentes.fxml");
+            System.out.println("Vous avez un probleme avec Directeur/BilanDeVente.fxml");
             e.printStackTrace();
         }
     }

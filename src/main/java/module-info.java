@@ -16,4 +16,7 @@ module com.example.projectgl {
 
     opens GestionDeClient to javafx.fxml;
     exports GestionDeClient;
+
+    opens GestionDirecteur to javafx.fxml;
+    exports GestionDirecteur;
 }
