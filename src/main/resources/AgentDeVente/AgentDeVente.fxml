@@ -7,8 +7,8 @@
 <AnchorPane prefHeight="821.0" prefWidth="1400.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controllers.AgentDeVenteC">
     <children>
         <Button fx:id="GP" layoutX="88.0" layoutY="169.0" mnemonicParsing="false" onAction="#GestionDesProduitsBouton" prefHeight="98.0" prefWidth="344.0" text="Gestion des Produits " />
-        <Button fx:id="GC" layoutX="88.0" layoutY="316.0" mnemonicParsing="false" onAction="#GestionDeClienteleBouton" prefHeight="98.0" prefWidth="344.0" text="Gestion de clientèle" />
-        <Button fx:id="GV" layoutX="88.0" layoutY="449.0" mnemonicParsing="false" onAction="#GestionDesVentesBouton" prefHeight="98.0" prefWidth="344.0" text="Gestion des ventes" />
+        <Button fx:id="GC" layoutX="88.0" layoutY="316.0" mnemonicParsing="false" onAction="#GestionDeClienteleBouton" prefHeight="98.0" prefWidth="344.0" text="Gestion des Clients" />
+        <Button fx:id="GV" layoutX="88.0" layoutY="449.0" mnemonicParsing="false" onAction="#GestionDesCommades" prefHeight="98.0" prefWidth="344.0" text="Gestion des Commandes" />
         <Label alignment="CENTER" layoutY="61.0" prefHeight="48.0" prefWidth="800.0" text="Bienvenue Mr.Agent de ventes" />
         <Button fx:id="retourBtn" layoutX="-2.0" mnemonicParsing="false" onAction="#switchToPreviousScene" text="Retour" />
     </children>

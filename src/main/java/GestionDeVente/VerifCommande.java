@@ -12,6 +12,7 @@ import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Stage;
+import methode.Client;
 import methode.Commande;
 
 import java.io.IOException;
@@ -19,6 +20,13 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.Properties;
+import javax.mail.Message;
+import javax.mail.*;
+import javax.mail.internet.AddressException;
+import javax.mail.internet.InternetAddress;
+import javax.mail.internet.MimeMessage;
+
 
 public class VerifCommande {
 
@@ -29,6 +37,9 @@ public class VerifCommande {
     private Parent root;
     private Scene scene;
     private Stage stage;
+
+    @FXML
+    private Button FactCliBtn;
 
     @FXML
     private TableColumn<Commande, String> DateCommCol;
@@ -66,13 +77,25 @@ public class VerifCommande {
     @FXML
     private TableView<Commande> tableComm;
 
-    public void switchToPreviousScene(ActionEvent event) throws IOException {
-        root = FXMLLoader.load(getClass().getResource("/GestionVentes/UIVentes.fxml"));
-        stage = (Stage)((Node)event.getSource()).getScene().getWindow();
-        scene = new Scene(root);
-        stage.setScene(scene);
-        stage.show();
+    private Client [] emailC = new Client[50];
+
+    public void FactCliScene() throws SQLException {
+        Stage stage = (Stage)this.FactCliBtn.getScene().getWindow();
+        stage.close();
+
+        try{
+            Stage primaryStage= new Stage();
+            Parent root= FXMLLoader.load(getClass().getResource("/GestionVentes/FacturerClient.fxml"));
+            Scene scene = new Scene(root);
+            primaryStage.setScene(scene);
+            primaryStage.show();
+
+        }catch (Exception e){
+            System.out.println("Vous avez un probleme avec GestionVentes/FacturerClient.fxml");
+            e.printStackTrace();
+        }
     }
+
 
     public void ShowComm(ActionEvent event) throws SQLException{
         PreparedStatement pr=null;
@@ -90,6 +113,7 @@ public class VerifCommande {
             try {
                 pr= connection.prepareStatement(sql);
                 rs= pr.executeQuery();
+
                 if(!comm.isEmpty()) comm.clear();
                 while (rs.next()){
                     Commande c = new Commande();
@@ -133,37 +157,89 @@ public class VerifCommande {
         }
 
         PreparedStatement pr=null;
+        PreparedStatement prC=null;
+        ResultSet rsC=null;
         String sql="Delete from commande where id_commande = ?";
-
+        String sqlC="select email from client where id_client = ?";
         try {
             int i=-1;
             while (!comm.isEmpty()){
                 i++;
             pr=connection.prepareStatement(sql);
+            prC=connection.prepareStatement(sqlC);
             pr.setInt(1,this.comm.get(i).getId_commande());
             Commande c = comm.get(i);
-            if(!c.getSelectVerif().isSelected()){
+            if(c.getSelectVerif().isSelected()){
                 pr.executeUpdate();
+
+                prC=connection.prepareStatement(sqlC);
+                prC.setInt(1,this.comm.get(i).getId_client());
+                rsC=prC.executeQuery();
+               // String recepient = rsC.getString("email");
+                   String recepient = "boiteprojet2022@gmail.com";
+                sendMail(recepient,comm.get(i).getPrix_total());
+
+                }
+
                 comm.remove(i);
                 this.statusLabel.setText("Commandes Vérifiés !");
             }
 
-            }
+
+
             this.statusLabel.setText("Commandes Vérifiés!");
             }catch (IndexOutOfBoundsException e){
-           e.printStackTrace();
+            System.out.println("IndexOutOfBoundsException");
         }
         catch (Exception e){
             e.printStackTrace();
         }finally {
-           // assert pr != null;
-           // pr.close();
+            assert pr != null;
+           pr.close();
             this.connection.close();
         }
 
+    }
+    private static void sendMail(String recepient,double PrixFact){
+        Properties properties = new Properties();
+        properties.put("mail.debug","true");
+        properties.put("mail.smtp.auth","true");
+        properties.put("mail.smtp.starttls.enable","true");
+        properties.put("mail.smtp.host","smtp.gmail.com");
+        properties.put("mail.smtp.port","587");
 
+        String myAccountEmail = "boiteprojet2022@gmail.com";
+        String password= "leMotDePasseEstpassword111";
 
+        Session session = Session.getDefaultInstance(properties, new javax.mail.Authenticator() {
+            @Override
+            protected PasswordAuthentication getPasswordAuthentication(){
+                return new PasswordAuthentication(myAccountEmail,password);
+            }
+        });
+
+       // Message message = prepareMessage(session,myAccountEmail,"boiteprojet2022@gmail.com");
+        try {
+            //Transport.send(message,myAccountEmail,password);
+            //
+            MimeMessage message = new MimeMessage(session);
+            message.setFrom(new InternetAddress(myAccountEmail));
+            message.addRecipient(Message.RecipientType.TO, new InternetAddress(recepient));
+            message.setSubject("Facture de votre commande");
+            message.setText("Bonjour,\nVotre Commande a été acceptée\nLe montant de votre commande est de : "+PrixFact+" DA\nCordialement");
+            Transport.send(message);
+            System.out.println("Message sent successfully!");
+        } catch (MessagingException e) {
+            e.printStackTrace();
+        }
 
     }
 
+    public void switchToPreviousScene(ActionEvent event) throws IOException {
+        root = FXMLLoader.load(getClass().getResource("/AgentDeVente/AgentDeVente.fxml"));
+        stage = (Stage)((Node)event.getSource()).getScene().getWindow();
+        scene = new Scene(root);
+        stage.setScene(scene);
+        stage.show();
+    }
 }

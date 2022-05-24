@@ -10,7 +10,7 @@
    <children>
       <Button fx:id="retourBtn" mnemonicParsing="false" onAction="#switchToPreviousScene" prefHeight="26.0" prefWidth="62.0" text="Retour" />
       <Button fx:id="ShowCommBtn" layoutX="552.0" layoutY="113.0" mnemonicParsing="false" onAction="#ShowComm" text="Afficher les Commandes" />
-      <TableView fx:id="tableComm" layoutX="224.0" layoutY="186.0" prefHeight="200.0" prefWidth="834.0">
+      <TableView fx:id="tableComm" layoutX="224.0" layoutY="186.0" prefHeight="200.0" prefWidth="767.0" AnchorPane.bottomAnchor="334.0" AnchorPane.topAnchor="186.0">
         <columns>
           <TableColumn fx:id="idCommCol" prefWidth="75.0" text="ID " />
           <TableColumn fx:id="idCliCol" prefWidth="115.0" text="ID CLIENT" />
@@ -21,7 +21,7 @@
             <TableColumn fx:id="VerifCol" prefWidth="75.0" text="Verifier" />
         </columns>
       </TableView>
-      <Button fx:id="VerifBtn"  onAction="#CheckComm" layoutX="603.0" layoutY="453.0" mnemonicParsing="false" text="Verifier !" />
+      <Button fx:id="VerifBtn" layoutX="597.0" layoutY="453.0" mnemonicParsing="false" onAction="#CheckComm" text="Facturer ! " />
       <Label fx:id="statusLabel" alignment="CENTER" layoutX="340.0" layoutY="566.0" prefHeight="16.0" prefWidth="602.0" />
    </children>
 </AnchorPane>
