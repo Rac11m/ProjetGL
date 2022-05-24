@@ -219,4 +219,12 @@ public class UpdateProducts implements Initializable {
         stage.show();
     }
 
+    public void switchToPreviousSceneAC(ActionEvent event) throws IOException {
+        root = FXMLLoader.load(getClass().getResource("/AgentCommercial/AgentCommercial.fxml"));
+        stage = (Stage)((Node)event.getSource()).getScene().getWindow();
+        scene = new Scene(root);
+        stage.setScene(scene);
+        stage.show();
+    }
+
 }
