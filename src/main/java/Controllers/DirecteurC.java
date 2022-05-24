@@ -17,9 +17,11 @@ public class DirecteurC {
 
     private static Agent agent;
     @FXML
-    private Button GP;
-    @FXML private Button GC;
-    @FXML private Button GV;
+    private Button PC;
+    @FXML
+    private Button VP;
+    @FXML
+    private Button GV;
     private Stage stage;
     private Scene scene;
     private Parent root;
@@ -31,27 +33,27 @@ public class DirecteurC {
         this.agent = agent;
     }
 
-    public void EtablirPlanDeVenteBouton() {
-        Stage stage =(Stage)this.GP.getScene().getWindow();
+    public void PlanDeVenteBouton() {
+        Stage stage =(Stage)this.VP.getScene().getWindow();
         stage.close();
 
         try {
             Stage primaryStage =new Stage();
 
-            Parent root= FXMLLoader.load(getClass().getResource("/GestionProduits/UIProduits.fxml"));
+            Parent root= FXMLLoader.load(getClass().getResource("/Directeur/PlanDeVente.fxml"));
             Scene scene = new Scene(root);
 //            scene.getStylesheets().add(getClass().getResource("application.css").toExternalForm());
             primaryStage.setScene(scene);
             primaryStage.show();
 
         } catch (Exception e) {
-            System.out.println("Vous avez un probleme avec GestionProduits/UIProduits.fxml");
+            System.out.println("Vous avez un probleme avec Directeur/PlanDeVente.fxml");
             e.printStackTrace();
         }
     }
 
     public void EditePlanDeVenteBouton() {
-        Stage stage =(Stage)this.GC.getScene().getWindow();
+        Stage stage =(Stage)this.PC.getScene().getWindow();
         stage.close();
 
         try {
