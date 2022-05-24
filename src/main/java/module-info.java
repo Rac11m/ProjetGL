@@ -5,6 +5,7 @@ module com.example.projectgl {
     requires org.kordamp.bootstrapfx.core;
     requires java.sql;
     requires java.sql.rowset;
+    requires java.mail;
 
     opens Login to javafx.fxml;
     exports Login;

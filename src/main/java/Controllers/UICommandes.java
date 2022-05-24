@@ -20,6 +20,7 @@ import javafx.scene.paint.Paint;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
 import javafx.util.Callback;
+import methode.Commande;
 
 import java.io.IOException;
 import java.net.URL;
@@ -141,6 +142,11 @@ public class UICommandes implements Initializable {
 
     public void AddCommande(ActionEvent event) throws SQLException, InterruptedException {
 
+
+        PreparedStatement prC= null;
+        ResultSet rsC=null;
+        String sqlC="select id_client,type_client from client where email = ?";
+
         try{
             this.connection = DBConnection.connectionBD();
         } catch (SQLException e){
@@ -152,6 +158,9 @@ public class UICommandes implements Initializable {
             PreparedStatement pr= null;
             ResultSet rs= null;
             try {
+                prC= this.connection.prepareStatement(sqlC);
+                prC.setString(1, LoginController.getTextField().getText());
+                rsC= prC.executeQuery();
                 this.statusLabel.setText("");
 
                 if(this.chercherProduit(this.refTF.getText())) {
@@ -187,8 +196,12 @@ public class UICommandes implements Initializable {
 
                         this.qntCol.setCellValueFactory(new PropertyValueFactory<Produit,Integer>("quantite"));
                         tableView.setItems(prod);
-
                         this.prixtotalTF.setText(""+prixTotal);
+
+                        if(rsC.getString("type_client").equals("revendeur")){
+                            double PrixReduc = prixTotal- (prixTotal*0.19);
+                            this.prixtotalTF.setText(""+PrixReduc);
+                        }
                     } else {
 
                         this.statusLabel.setText("quantite insuffisante !");
@@ -207,7 +220,13 @@ public class UICommandes implements Initializable {
                 pr.close();
                 assert rs != null;
                 rs.close();
+                assert prC != null;
+                prC.close();
+                assert rsC != null;
+                rsC.close();
                 this.connection.close();
+                this.refTF.setText("");
+                this.qntTF.setText("");
             }
         }
     }
@@ -222,7 +241,7 @@ public class UICommandes implements Initializable {
         PreparedStatement prC= null;
         ResultSet rsC=null;
         String sql="insert into commande (id_commande,id_client,id_agent,D_commande,Heure_commande,prix_total)values (?,?,?,?,?,?)";
-        String sqlC="select id_client from client where email = ?";
+        String sqlC="select id_client,type_client from client where email = ?";
         try{
             prC= this.connection.prepareStatement(sqlC);
             prC.setString(1, LoginController.getTextField().getText());
@@ -232,15 +251,19 @@ public class UICommandes implements Initializable {
             DateTimeFormatter currentTime = DateTimeFormatter.ofPattern("HH:mm:ss");
             LocalDateTime now = LocalDateTime.now();
             pr= connection.prepareStatement(sql);
-            methode.Commande c = new methode.Commande();
+            Commande c = new Commande();
 
             c.setId_client(rsC.getInt("id_client"));
-            
             c.setId_agent(1);
             c.setDate_commande(currentDate.format(now));
             c.setHeure_commande(currentTime.format(now));
             c.setProd_commande(prod);
             c.setPrix_total(prixTotal);
+            if(rsC.getString("type_client").equals("revendeur")){
+                double PrixReduc = c.getPrix_total()- (c.getPrix_total()*0.19);
+                c.setPrix_total(PrixReduc);
+            }
+
             comm.add(c);
             pr.setInt(2,c.getId_client());
             pr.setInt(3,c.getId_agent());
