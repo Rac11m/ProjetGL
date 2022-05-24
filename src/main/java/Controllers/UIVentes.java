@@ -21,6 +21,8 @@ public class UIVentes {
     private Scene scene;
     private Stage stage;
 
+
+
     @FXML
     private Button FactCliBtn;
 

@@ -1,16 +1,27 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.lang.*?>
-<?import java.util.*?>
-<?import javafx.scene.*?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane xmlns="http://javafx.com/javafx"
-            xmlns:fx="http://javafx.com/fxml"
-            fx:controller="Controllers.UIVentes"
-            prefHeight="400.0" prefWidth="600.0">
-
-    /* le contenu sera une tableView avec toutes les commandes recuperer de la db ,,,,, à faire le 24/05 avant midi !!!!!!! */
-
+<AnchorPane prefHeight="720.0" prefWidth="1280.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GestionDeVente.VerifCommande">
+   <children>
+      <Button fx:id="retourBtn" mnemonicParsing="false" onAction="#switchToPreviousScene" prefHeight="26.0" prefWidth="62.0" text="Retour" />
+      <Button fx:id="ShowCommBtn" layoutX="552.0" layoutY="113.0" mnemonicParsing="false" onAction="#ShowComm" text="Afficher les Commandes" />
+      <TableView fx:id="tableComm" layoutX="224.0" layoutY="186.0" prefHeight="200.0" prefWidth="834.0">
+        <columns>
+          <TableColumn fx:id="idCommCol" prefWidth="75.0" text="ID " />
+          <TableColumn fx:id="idCliCol" prefWidth="115.0" text="ID CLIENT" />
+            <TableColumn fx:id="idAgentCol" prefWidth="97.0" text="ID AGENT" />
+            <TableColumn fx:id="DateCommCol" prefWidth="130.0" text="Date commande" />
+            <TableColumn fx:id="HeurreCommCol" prefWidth="139.0" text="Heure Cmmande" />
+            <TableColumn fx:id="PrixCommCol" prefWidth="135.0" text="Prix commande" />
+            <TableColumn fx:id="VerifCol" prefWidth="75.0" text="Verifier" />
+        </columns>
+      </TableView>
+      <Button fx:id="VerifBtn"  onAction="#CheckComm" layoutX="603.0" layoutY="453.0" mnemonicParsing="false" text="Verifier !" />
+      <Label fx:id="statusLabel" alignment="CENTER" layoutX="340.0" layoutY="566.0" prefHeight="16.0" prefWidth="602.0" />
+   </children>
 </AnchorPane>

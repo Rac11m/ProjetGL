@@ -23,19 +23,19 @@ import javafx.util.Callback;
 
 import java.io.IOException;
 import java.net.URL;
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
+import java.sql.*;
 import java.text.DateFormat;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.ResourceBundle;
+import java.util.Timer;
+import java.util.TimerTask;
+
 
 public class UICommandes implements Initializable {
 
     ObservableList<Produit> prod = FXCollections.observableArrayList();
-    ObservableList<Commande> comm = FXCollections.observableArrayList();
+    ObservableList<methode.Commande> comm = FXCollections.observableArrayList();
     Connection connection;
 
     private double prixTotal=0;
@@ -139,7 +139,7 @@ public class UICommandes implements Initializable {
         return null;
     }
 
-    public void AddCommande(ActionEvent event) throws SQLException {
+    public void AddCommande(ActionEvent event) throws SQLException, InterruptedException {
 
         try{
             this.connection = DBConnection.connectionBD();
@@ -152,14 +152,13 @@ public class UICommandes implements Initializable {
             PreparedStatement pr= null;
             ResultSet rs= null;
             try {
-
+                this.statusLabel.setText("");
 
                 if(this.chercherProduit(this.refTF.getText())) {
                     String sql="SELECT * FROM produits where reference = ?";
                     pr = connection.prepareStatement(sql);
                     pr.setString(1, this.refTF.getText());
                     rs = pr.executeQuery();
-
 
                    // p.setQuantite(rs.getInt("quantite"));
 
@@ -191,11 +190,14 @@ public class UICommandes implements Initializable {
 
                         this.prixtotalTF.setText(""+prixTotal);
                     } else {
+
                         this.statusLabel.setText("quantite insuffisante !");
+
                     }
 
                     }else {
-                    System.out.println("Produit n'existe pas");
+                    this.statusLabel.setText("Produit n'existe pas");
+
                 }
 
             }catch (Exception e){
@@ -219,18 +221,18 @@ public class UICommandes implements Initializable {
         PreparedStatement pr=null;
         PreparedStatement prC= null;
         ResultSet rsC=null;
-        String sql="insert into commande (id_commande,id_client,id_agent,D_commande,Heure_commande)values (?,?,?,?,?)";
+        String sql="insert into commande (id_commande,id_client,id_agent,D_commande,Heure_commande,prix_total)values (?,?,?,?,?,?)";
         String sqlC="select id_client from client where email = ?";
         try{
             prC= this.connection.prepareStatement(sqlC);
             prC.setString(1, LoginController.getTextField().getText());
             rsC= prC.executeQuery();
 
-            DateTimeFormatter currentDate = DateTimeFormatter.ofPattern("yyyy/MM/dd");
+            DateTimeFormatter currentDate = DateTimeFormatter.ofPattern("yyyy-MM-dd");
             DateTimeFormatter currentTime = DateTimeFormatter.ofPattern("HH:mm:ss");
             LocalDateTime now = LocalDateTime.now();
             pr= connection.prepareStatement(sql);
-            Commande c = new Commande();
+            methode.Commande c = new methode.Commande();
 
             c.setId_client(rsC.getInt("id_client"));
             
@@ -238,12 +240,13 @@ public class UICommandes implements Initializable {
             c.setDate_commande(currentDate.format(now));
             c.setHeure_commande(currentTime.format(now));
             c.setProd_commande(prod);
+            c.setPrix_total(prixTotal);
             comm.add(c);
             pr.setInt(2,c.getId_client());
             pr.setInt(3,c.getId_agent());
             pr.setString(4,c.getDate_commande());
             pr.setString(5,c.getHeure_commande());
-
+            pr.setDouble(6,c.getPrix_total());
             pr.executeUpdate();
             this.statusLabel.setText("Commande effectuée avec succès !");
         }catch (SQLException e){

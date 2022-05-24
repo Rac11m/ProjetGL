@@ -16,4 +16,10 @@ module com.example.projectgl {
 
     opens GestionDeClient to javafx.fxml;
     exports GestionDeClient;
+
+    opens GestionDeVente to javafx.fxml;
+    exports GestionDeVente;
+
+    opens methode to java.base;
+    exports methode;
 }
