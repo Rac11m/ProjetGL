@@ -39,7 +39,7 @@ public class AgentCommercialC {
         try {
             Stage primaryStage =new Stage();
 
-            Parent root= FXMLLoader.load(getClass().getResource("/GestionProduits/UIProduits.fxml"));
+            Parent root= FXMLLoader.load(getClass().getResource("/GestionProduits/ModifierProduit.fxml"));
             Scene scene = new Scene(root);
 //            scene.getStylesheets().add(getClass().getResource("application.css").toExternalForm());
             primaryStage.setScene(scene);
