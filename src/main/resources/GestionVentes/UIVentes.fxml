@@ -6,8 +6,8 @@
 
 <AnchorPane prefHeight="821.0" prefWidth="1400.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controllers.UIVentes">
    <children>
-      <Button fx:id="verifCommBtn" layoutX="535.0" layoutY="121.0" mnemonicParsing="false" prefHeight="130.0" prefWidth="269.0" text="Vérifier les Commandes" />
-      <Button fx:id="FactCliBtn" layoutX="535.0" layoutY="346.0" mnemonicParsing="false" prefHeight="130.0" prefWidth="269.0" text="Facturer les Clients" />
+      <Button fx:id="verifCommBtn" onAction="#VerifCommScene" layoutX="535.0" layoutY="121.0" mnemonicParsing="false" prefHeight="130.0" prefWidth="269.0" text="Vérifier les Commandes" />
+      <Button fx:id="FactCliBtn" onAction="#FactCliScene" layoutX="535.0" layoutY="346.0" mnemonicParsing="false" prefHeight="130.0" prefWidth="269.0" text="Facturer les Clients" />
       <Button fx:id="retourBtn" onAction="#switchToPreviousScene" mnemonicParsing="false" prefHeight="26.0" prefWidth="62.0" text="Retour" />
    </children>
 </AnchorPane>
