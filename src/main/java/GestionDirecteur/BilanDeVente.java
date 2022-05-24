@@ -1,6 +1,8 @@
 package GestionDirecteur;
 
 import DBUtil.DBConnection;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -9,6 +11,7 @@ import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.chart.LineChart;
+import javafx.scene.chart.PieChart;
 import javafx.scene.chart.XYChart;
 import javafx.stage.Stage;
 
@@ -28,16 +31,18 @@ public class BilanDeVente implements Initializable {
     Connection connection;
 
     XYChart.Series<String, Double> series = new XYChart.Series<String, Double>();
-
+    ObservableList<PieChart.Data> pieChartData = FXCollections.observableArrayList();
     @FXML
     private LineChart<String, Double> lineChart;
+    @FXML
+    private PieChart pieChart;
 
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
     }
 
-    public void stat(ActionEvent event) throws SQLException {
+    public void statLineChart(ActionEvent event) throws SQLException {
         series.setName("Ventes"); //setting series name (appear as legends)
 
         PreparedStatement pr= null;
@@ -67,7 +72,46 @@ public class BilanDeVente implements Initializable {
                     series.getData().add(new XYChart.Data<String, Double>((mois), prix_par_mois));
                 }
                 lineChart.getData().add(series);
+                lineChart.setTitle("Bilan de ventes de l'année 2022");
+            }catch (Exception e){
+                e.printStackTrace();
+            }finally {
+                assert pr != null;
+                pr.close();
+                assert rs != null;
+                rs.close();
+                connection.close();
+            }
+        }
 
+    }
+
+    public void statPieChart(ActionEvent event) throws SQLException {
+        PreparedStatement pr= null;
+        ResultSet rs= null;
+
+        try{
+            this.connection = DBConnection.connectionBD();
+        } catch (SQLException e){
+            e.printStackTrace();
+        }
+
+        if(connection != null){
+            String sql="SELECT strftime('%m',D_commande) AS Month, sum(prix_total) FROM commande GROUP BY strftime('%m',D_commande) ORDER BY strftime('%m',D_commande)";
+
+            try {
+                pr= connection.prepareStatement(sql);
+                rs= pr.executeQuery();
+
+                while (rs.next()) {
+                    int month_n = rs.getInt("Month");
+                    double prix_par_mois = (rs.getDouble("sum(prix_total)"));
+                    String mois = getMois(month_n);
+
+                    pieChartData.add(new PieChart.Data(mois,prix_par_mois));
+                }
+                pieChart.setData(pieChartData);
+                pieChart.setTitle("Bilan de ventes de l'année 2022");
             }catch (Exception e){
                 e.printStackTrace();
             }finally {
