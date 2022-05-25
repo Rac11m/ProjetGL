@@ -8,17 +8,25 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.image.Image?>
 <AnchorPane prefHeight="821.0" prefWidth="1400.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GestionDeClient.DeleteClients">
     <children>
-        <Button fx:id="retourBtn" mnemonicParsing="false" onAction="#switchToPreviousScene" text="Retour" />
-        <Label fx:id="StautsLabel" alignment="CENTER" layoutY="657.0" prefHeight="66.0" prefWidth="1608.0" text="">
+        <Button fx:id="retourBtn" layoutX="-2.0" mnemonicParsing="false" onAction="#switchToPreviousScene" prefHeight="48.0" prefWidth="68.0" />
+        <ImageView fx:id="imageView" fitHeight="150.0" fitWidth="200.0" layoutX="606.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
+            <image>
+                <Image url="@../Images/milky.png" />
+            </image>
+        </ImageView>
+        <ImageView fx:id="imageView2" fitHeight="48.0" fitWidth="68.0" pickOnBounds="true" preserveRatio="true" />
+        <Label fx:id="StautsLabel" alignment="CENTER" layoutY="697.0" prefHeight="66.0" prefWidth="1608.0" text="">
          <font>
             <Font size="14.0" />
          </font>
         </Label>
-        <TextField fx:id="SearchTF" alignment="CENTER" layoutX="578.0" layoutY="96.0" prefHeight="32.0" prefWidth="452.0" promptText="Entrer l'email du client a supprimer" />
-        <Button fx:id="SearchBtn" layoutX="761.0" layoutY="507.0" mnemonicParsing="false" onAction="#Delete" text="Supprimer" />
-        <TableView fx:id="TableClient" layoutX="60.0" layoutY="290.0" prefHeight="200.0" prefWidth="1484.0">
+        <TextField fx:id="SearchTF" alignment="CENTER" layoutX="579.0" layoutY="269.0" prefHeight="32.0" prefWidth="452.0" promptText="Entrer l'email du client a supprimer" />
+        <Button fx:id="SearchBtn" layoutX="700.0" layoutY="646.0" mnemonicParsing="false" onAction="#Delete" prefHeight="44.0" prefWidth="205.0" text="Supprimer" />
+        <TableView fx:id="TableClient" layoutX="61.0" layoutY="411.0" prefHeight="200.0" prefWidth="1484.0">
             <columns>
                 <TableColumn fx:id="IDcol" prefWidth="47.0" text="ID" />
                 <TableColumn fx:id="typeCol" prefWidth="123.0" text="Type client" />
@@ -30,8 +38,8 @@
                 <TableColumn fx:id="AdrCol" prefWidth="396.0" text="Adresse" />
             </columns>
         </TableView>
-      <Button fx:id="searchTF" layoutX="1135.0" layoutY="96.0" mnemonicParsing="false" onAction="#rechercheBtn" prefHeight="32.0" prefWidth="96.0" text="Chercher" />
-      <Label fx:id="ChercherLabel" alignment="CENTER" layoutY="174.0" prefHeight="76.0" prefWidth="1608.0">
+      <Button fx:id="searchTF" layoutX="1136.0" layoutY="269.0" mnemonicParsing="false" onAction="#rechercheBtn" prefHeight="32.0" prefWidth="96.0" text="Chercher" />
+      <Label fx:id="ChercherLabel" alignment="CENTER" layoutY="321.0" prefHeight="76.0" prefWidth="1608.0">
          <font>
             <Font size="20.0" />
          </font>

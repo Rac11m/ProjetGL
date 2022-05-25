@@ -2,14 +2,40 @@
 
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
 
 <AnchorPane prefHeight="821.0" prefWidth="1400.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controllers.AgentCommercialC">
     <children>
-        <Button fx:id="GP" layoutX="88.0" layoutY="169.0" mnemonicParsing="false" onAction="#GestionDesProduitsBouton" prefHeight="98.0" prefWidth="344.0" text="Modifier Produit" />
-        <Button fx:id="GC" layoutX="88.0" layoutY="316.0" mnemonicParsing="false" onAction="#GestionDeClienteleBouton" prefHeight="98.0" prefWidth="344.0" text="Gestion de clientèle" />
-<!--        <Button fx:id="GV" layoutX="88.0" layoutY="449.0" mnemonicParsing="false" onAction="#GestionDesVentesBouton" prefHeight="98.0" prefWidth="344.0" text="Gestion des ventes" />-->
-        <Label alignment="CENTER" layoutY="61.0" prefHeight="48.0" prefWidth="800.0" text="Bienvenue Mr.Agent Commercial" />
-        <Button fx:id="RTR" mnemonicParsing="false" onAction="#switchToPreviousScene" prefHeight="36.0" prefWidth="118.0" text="Retour" />
+        <Button fx:id="GP" layoutX="157.0" layoutY="637.0" mnemonicParsing="false" onAction="#GestionDesProduitsBouton" prefHeight="98.0" prefWidth="344.0" text="Modifier Produit" />
+        <Button fx:id="GC" layoutX="901.0" layoutY="637.0" mnemonicParsing="false" onAction="#GestionDeClienteleBouton" prefHeight="98.0" prefWidth="344.0" text="Gestion de clientèle" />
+        <Label alignment="CENTER" layoutX="45.0" layoutY="283.0" prefHeight="48.0" prefWidth="500.0" text="Bienvenue Mr.Agent Commercial"><font>
+            <Font size="28.0" />
+        </font>
+        </Label>
+        <Button fx:id="retourBtn" layoutX="-2.0" mnemonicParsing="false" onAction="#switchToPreviousScene" prefHeight="48.0" prefWidth="68.0" />
+        <ImageView fx:id="imageView" fitHeight="150.0" fitWidth="200.0" layoutX="606.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
+            <image>
+                <Image url="@../Images/milky.png" />
+            </image>
+        </ImageView>
+        <ImageView fx:id="imageView2" fitHeight="48.0" fitWidth="68.0" pickOnBounds="true" preserveRatio="true" />
+        <ImageView fx:id="imageView3" fitHeight="150.0" fitWidth="200.0" layoutX="606.0" layoutY="232.0" pickOnBounds="true" preserveRatio="true">
+            <image>
+                <Image url="@../Images/agentCommercial.png" />
+            </image>
+        </ImageView>
+      <ImageView fx:id="imageView4" fitHeight="150.0" fitWidth="200.0" layoutX="254.0" layoutY="453.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../Images/modifierProduit.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="imageView5" fitHeight="150.0" fitWidth="200.0" layoutX="998.0" layoutY="453.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../Images/gestionClient.png" />
+         </image>
+      </ImageView>
     </children>
 </AnchorPane>

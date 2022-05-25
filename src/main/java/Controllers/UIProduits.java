@@ -15,6 +15,8 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.stage.Stage;
 
 import java.io.IOException;
@@ -47,9 +49,32 @@ public class UIProduits implements Initializable {
     private Parent root;
     private Stage stage;
     private Scene scene;
+    @FXML
+    private ImageView imageView,imageView2,imageView3, imageView4,imageView5,imageView6;
+    @FXML
+    private Image image1 = new Image(getClass().getResourceAsStream("/Images/milky.png"));
+    @FXML
+    private Image image2 = new Image(getClass().getResourceAsStream("/Images/back.png"));
+    @FXML
+    private Image image3 = new Image(getClass().getResourceAsStream("/Images/afficherProduit.png"));
+    @FXML
+    private Image image4 = new Image(getClass().getResourceAsStream("/Images/ajouterProduit.png"));
+    @FXML
+    private Image image5 = new Image(getClass().getResourceAsStream("/Images/supprimerProduit.png"));
+    @FXML
+    private Image image6 = new Image(getClass().getResourceAsStream("/Images/modifierProduit.png"));
+    @FXML
+    private Button retourBtn;
 
-
-    public void initialize(URL location, ResourceBundle resouces){
+    @Override
+    public void initialize(URL url, ResourceBundle resourceBundle) {
+        imageView.setImage(image1);
+        imageView2.setImage(image2);
+        imageView3.setImage(image3);
+        imageView4.setImage(image4);
+        imageView5.setImage(image5);
+        imageView6.setImage(image6);
+        retourBtn.setGraphic(imageView2);
     }
     // RECHERCHER UN PRODUIT DANS LA BASE DE DONNEES
 
@@ -62,6 +87,7 @@ public class UIProduits implements Initializable {
             Stage primaryStage= new Stage();
             Parent root= FXMLLoader.load(getClass().getResource("/GestionProduits/AfficherProduit.fxml"));
             Scene scene = new Scene(root);
+            scene.getStylesheets().add(getClass().getResource("/application.css").toExternalForm());
             primaryStage.setScene(scene);
             primaryStage.show();
 
@@ -79,6 +105,7 @@ public class UIProduits implements Initializable {
 
             Parent root= FXMLLoader.load(getClass().getResource("/GestionProduits/AjouterProduit.fxml"));
             Scene scene = new Scene(root);
+            scene.getStylesheets().add(getClass().getResource("/application.css").toExternalForm());
             primaryStage.setScene(scene);
             primaryStage.show();
         }catch (Exception e){
@@ -96,6 +123,7 @@ public class UIProduits implements Initializable {
 
             Parent root= FXMLLoader.load(getClass().getResource("/GestionProduits/ModifierProduit.fxml"));
             Scene scene = new Scene(root);
+            scene.getStylesheets().add(getClass().getResource("/application.css").toExternalForm());
             primaryStage.setScene(scene);
             primaryStage.show();
         }catch (Exception e){
@@ -113,6 +141,7 @@ public class UIProduits implements Initializable {
 
             Parent root= FXMLLoader.load(getClass().getResource("/GestionProduits/SupprimerProduit.fxml"));
             Scene scene = new Scene(root);
+            scene.getStylesheets().add(getClass().getResource("/application.css").toExternalForm());
             primaryStage.setScene(scene);
             primaryStage.show();
         }catch (Exception e){
@@ -125,6 +154,7 @@ public class UIProduits implements Initializable {
         root = FXMLLoader.load(getClass().getResource("/AgentDeVente/AgentDeVente.fxml"));
         stage = (Stage)((Node)event.getSource()).getScene().getWindow();
         scene = new Scene(root);
+        scene.getStylesheets().add(getClass().getResource("/application.css").toExternalForm());
         stage.setScene(scene);
         stage.show();
     }

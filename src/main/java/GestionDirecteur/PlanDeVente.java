@@ -11,9 +11,12 @@ import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.chart.PieChart;
+import javafx.scene.control.Button;
 import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.stage.Stage;
 
 import java.io.IOException;
@@ -41,12 +44,21 @@ public class PlanDeVente implements Initializable {
     private Label chiffreAffaire;
     @FXML
     private Label difference;
-
-
+    @FXML
+    private ImageView imageView,imageView2;
+    @FXML
+    private Image image1 = new Image(getClass().getResourceAsStream("/Images/milky.png"));
+    @FXML
+    private Image image2 = new Image(getClass().getResourceAsStream("/Images/back.png"));
+    @FXML
+    private Button retourBtn;
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         this.typeMchbox.setItems(FXCollections.observableArrayList(Mois.values()));
+        imageView.setImage(image1);
+        imageView2.setImage(image2);
+        retourBtn.setGraphic(imageView2);
     }
 
     public void VoirPlant() throws SQLException {
@@ -90,6 +102,7 @@ public class PlanDeVente implements Initializable {
         stage = (Stage)((Node)event.getSource()).getScene().getWindow();
         scene = new Scene(root);
         stage.setScene(scene);
+        scene.getStylesheets().add(getClass().getResource("/application.css").toExternalForm());
         stage.show();
     }
 }

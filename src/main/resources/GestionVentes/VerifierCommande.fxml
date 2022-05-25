@@ -4,24 +4,31 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane prefHeight="720.0" prefWidth="1280.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GestionDeVente.VerifCommande">
+<AnchorPane prefHeight="821.0" prefWidth="1400.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GestionDeVente.VerifCommande">
    <children>
-      <Button fx:id="retourBtn" mnemonicParsing="false" onAction="#switchToPreviousScene" prefHeight="26.0" prefWidth="62.0" text="Retour" />
-      <Button fx:id="ShowCommBtn" layoutX="552.0" layoutY="113.0" mnemonicParsing="false" onAction="#ShowComm" text="Afficher les Commandes" />
-      <TableView fx:id="tableComm" layoutX="224.0" layoutY="186.0" prefHeight="200.0" prefWidth="767.0" AnchorPane.bottomAnchor="334.0" AnchorPane.topAnchor="186.0">
+       <Button fx:id="retourBtn" layoutX="-2.0" mnemonicParsing="false" onAction="#switchToPreviousScene" prefHeight="48.0" prefWidth="68.0" />
+       <ImageView fx:id="imageView" fitHeight="150.0" fitWidth="200.0" layoutX="606.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
+           <image>
+               <Image url="@../Images/milky.png" />
+           </image>
+       </ImageView>
+       <ImageView fx:id="imageView2" fitHeight="48.0" fitWidth="68.0" pickOnBounds="true" preserveRatio="true" />      <Button fx:id="ShowCommBtn" layoutX="571.0" layoutY="179.0" mnemonicParsing="false" onAction="#ShowComm" prefHeight="36.0" prefWidth="221.0" text="Afficher les Commandes" />
+      <TableView fx:id="tableComm" layoutX="145.0" layoutY="243.0" prefHeight="445.0" prefWidth="1118.0" AnchorPane.bottomAnchor="133.0" AnchorPane.topAnchor="243.0">
         <columns>
           <TableColumn fx:id="idCommCol" prefWidth="75.0" text="ID " />
-          <TableColumn fx:id="idCliCol" prefWidth="115.0" text="ID CLIENT" />
-            <TableColumn fx:id="idAgentCol" prefWidth="97.0" text="ID AGENT" />
-            <TableColumn fx:id="DateCommCol" prefWidth="130.0" text="Date commande" />
-            <TableColumn fx:id="HeurreCommCol" prefWidth="139.0" text="Heure Cmmande" />
-            <TableColumn fx:id="PrixCommCol" prefWidth="135.0" text="Prix commande" />
-            <TableColumn fx:id="VerifCol" prefWidth="75.0" text="Verifier" />
+          <TableColumn fx:id="idCliCol" prefWidth="147.0" text="ID CLIENT" />
+            <TableColumn fx:id="idAgentCol" prefWidth="136.0" text="ID AGENT" />
+            <TableColumn fx:id="DateCommCol" prefWidth="205.0" text="Date commande" />
+            <TableColumn fx:id="HeurreCommCol" prefWidth="201.0" text="Heure Cmmande" />
+            <TableColumn fx:id="PrixCommCol" prefWidth="183.0" text="Prix commande" />
+            <TableColumn fx:id="VerifCol" prefWidth="153.0" text="Verifier" />
         </columns>
       </TableView>
-      <Button fx:id="VerifBtn" layoutX="597.0" layoutY="453.0" mnemonicParsing="false" onAction="#CheckComm" text="Facturer ! " />
-      <Label fx:id="statusLabel" alignment="CENTER" layoutX="340.0" layoutY="566.0" prefHeight="16.0" prefWidth="602.0" />
+      <Button fx:id="VerifBtn" layoutX="616.0" layoutY="706.0" mnemonicParsing="false" onAction="#CheckComm" prefHeight="36.0" prefWidth="130.0" text="Facturer ! " />
+      <Label fx:id="statusLabel" alignment="CENTER" layoutX="380.0" layoutY="757.0" prefHeight="50.0" prefWidth="602.0" />
    </children>
 </AnchorPane>

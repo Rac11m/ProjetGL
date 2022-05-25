@@ -14,6 +14,8 @@ public class LoginApp extends javafx.application.Application {
         try {
             FXMLLoader fxmlLoader = new FXMLLoader(LoginApp.class.getResource("Login.fxml"));
             Scene scene = new Scene(fxmlLoader.load(), 1400, 820);
+            scene.getStylesheets().add(getClass().getResource("/application.css").toExternalForm());
+
             stage.setTitle("Bienvenue!");
             stage.setScene(scene);
             stage.show();

@@ -6,29 +6,37 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.image.Image?>
 <AnchorPane prefHeight="821.0" prefWidth="1400.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GestionDeClient.UpdateClients">
     <children>
-        <Button fx:id="retourBtn" layoutX="-2.0" mnemonicParsing="false" onAction="#switchToPreviousScene" text="Retour" />
-        <TextField fx:id="searchTF" layoutX="342.0" layoutY="45.0" prefHeight="24.0" prefWidth="254.0" promptText="L'email du client à modifier" />
-        <Button fx:id="updateBtn" layoutX="469.0" layoutY="401.0" mnemonicParsing="false" onAction="#UpdateClient" prefHeight="24.0" prefWidth="263.0" text="Modifier" />
-        <Label layoutX="375.0" layoutY="213.0" text="designation" />
-        <Label layoutX="594.0" layoutY="213.0" text="Adresse" />
-        <Label layoutX="27.0" layoutY="294.0" text="Email" />
-        <Label layoutX="199.0" layoutY="294.0" text="Telephone" />
-        <TextField fx:id="des" layoutX="376.0" layoutY="250.0" prefHeight="24.0" prefWidth="147.0" />
-        <TextField fx:id="adresse" layoutX="590.0" layoutY="250.0" prefHeight="24.0" prefWidth="147.0" />
-        <TextField fx:id="tel" layoutX="199.0" layoutY="322.0" prefHeight="24.0" prefWidth="147.0" />
-        <TextField fx:id="email" layoutX="23.0" layoutY="322.0" prefHeight="24.0" prefWidth="147.0" />
-        <Label fx:id="statusLabel" alignment="CENTER" layoutX="469.0" layoutY="441.0" prefHeight="62.0" prefWidth="263.0">
+        <Button fx:id="retourBtn" layoutX="-2.0" mnemonicParsing="false" onAction="#switchToPreviousScene" prefHeight="48.0" prefWidth="68.0" />
+        <ImageView fx:id="imageView" fitHeight="150.0" fitWidth="200.0" layoutX="606.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
+            <image>
+                <Image url="@../Images/milky.png" />
+            </image>
+        </ImageView>
+        <ImageView fx:id="imageView2" fitHeight="48.0" fitWidth="68.0" pickOnBounds="true" preserveRatio="true" />
+        <TextField fx:id="searchTF" layoutX="606.0" layoutY="263.0" prefHeight="24.0" prefWidth="254.0" promptText="L'email du client à modifier" />
+        <Button fx:id="updateBtn" layoutX="733.0" layoutY="619.0" mnemonicParsing="false" onAction="#UpdateClient" prefHeight="24.0" prefWidth="263.0" text="Modifier" />
+        <Label layoutX="639.0" layoutY="431.0" text="designation" />
+        <Label layoutX="858.0" layoutY="431.0" text="Adresse" />
+        <Label layoutX="291.0" layoutY="512.0" text="Email" />
+        <Label layoutX="463.0" layoutY="512.0" text="Telephone" />
+        <TextField fx:id="des" layoutX="640.0" layoutY="468.0" prefHeight="24.0" prefWidth="147.0" />
+        <TextField fx:id="adresse" layoutX="854.0" layoutY="468.0" prefHeight="24.0" prefWidth="147.0" />
+        <TextField fx:id="tel" layoutX="463.0" layoutY="540.0" prefHeight="24.0" prefWidth="147.0" />
+        <TextField fx:id="email" layoutX="287.0" layoutY="540.0" prefHeight="24.0" prefWidth="147.0" />
+        <Label fx:id="statusLabel" alignment="CENTER" layoutX="733.0" layoutY="659.0" prefHeight="62.0" prefWidth="263.0">
          <font>
             <Font size="14.0" />
          </font></Label>
-      <Label layoutX="26.0" layoutY="213.0" text="Nom" />
-      <Label layoutX="203.0" layoutY="213.0" text="Prenom" />
-      <TextField fx:id="nom" layoutX="23.0" layoutY="250.0" prefHeight="24.0" prefWidth="147.0" />
-      <TextField fx:id="prenom" layoutX="199.0" layoutY="250.0" prefHeight="24.0" prefWidth="147.0" />
-      <Button layoutX="689.0" layoutY="45.0" mnemonicParsing="false" onAction="#rechercheBtn" text="Chercher" />
-      <Label fx:id="ChercherLabel" alignment="CENTER" layoutY="97.0" prefHeight="50.0" prefWidth="770.0" />
+      <Label layoutX="290.0" layoutY="431.0" text="Nom" />
+      <Label layoutX="467.0" layoutY="431.0" text="Prenom" />
+      <TextField fx:id="nom" layoutX="287.0" layoutY="468.0" prefHeight="24.0" prefWidth="147.0" />
+      <TextField fx:id="prenom" layoutX="463.0" layoutY="468.0" prefHeight="24.0" prefWidth="147.0" />
+      <Button layoutX="953.0" layoutY="263.0" mnemonicParsing="false" onAction="#rechercheBtn" text="Chercher" />
+      <Label fx:id="ChercherLabel" alignment="CENTER" layoutX="264.0" layoutY="315.0" prefHeight="50.0" prefWidth="770.0" />
     </children>
 
 </AnchorPane>

@@ -7,20 +7,25 @@ import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.stage.Stage;
 
 import java.io.IOException;
+import java.net.URL;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ResourceBundle;
 
-public class DeleteProducts {
+public class DeleteProducts implements Initializable {
 
     Connection conn;
     private Stage stage;
@@ -75,6 +80,22 @@ public class DeleteProducts {
 
     @FXML
     private TableColumn<Produit, String> vnTP;
+
+    @FXML
+    private ImageView imageView,imageView2;
+    @FXML
+    private Image image1 = new Image(getClass().getResourceAsStream("/Images/milky.png"));
+    @FXML
+    private Image image2 = new Image(getClass().getResourceAsStream("/Images/back.png"));
+    @FXML
+    private Button retourBtn;
+
+    @Override
+    public void initialize(URL url, ResourceBundle resourceBundle) {
+        imageView.setImage(image1);
+        imageView2.setImage(image2);
+        retourBtn.setGraphic(imageView2);
+    }
 
     public boolean chercherProduit(String ref) throws SQLException,Exception{
         PreparedStatement pr=null;
@@ -235,6 +256,7 @@ public class DeleteProducts {
         root = FXMLLoader.load(getClass().getResource("/GestionProduits/UIProduits.fxml"));
         stage = (Stage)((Node)event.getSource()).getScene().getWindow();
         scene = new Scene(root);
+        scene.getStylesheets().add(getClass().getResource("/application.css").toExternalForm());
         stage.setScene(scene);
         stage.show();
     }

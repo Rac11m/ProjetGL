@@ -8,6 +8,8 @@ import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.stage.Stage;
 
 import java.io.IOException;
@@ -33,10 +35,32 @@ public class UIClientele implements Initializable {
     private Parent root;
     private Scene scene;
     private Stage stage;
+    @FXML
+    private ImageView imageView,imageView2,imageView3, imageView4,imageView5,imageView6;
+    @FXML
+    private Image image1 = new Image(getClass().getResourceAsStream("/Images/milky.png"));
+    @FXML
+    private Image image2 = new Image(getClass().getResourceAsStream("/Images/back.png"));
+    @FXML
+    private Image image3 = new Image(getClass().getResourceAsStream("/Images/afficherClient.png"));
+    @FXML
+    private Image image4 = new Image(getClass().getResourceAsStream("/Images/ajouterClient.png"));
+    @FXML
+    private Image image5 = new Image(getClass().getResourceAsStream("/Images/supprimerClient.png"));
+    @FXML
+    private Image image6 = new Image(getClass().getResourceAsStream("/Images/modifierClient.png"));
+    @FXML
+    private Button retourBtn;
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-
+        imageView.setImage(image1);
+        imageView2.setImage(image2);
+        imageView3.setImage(image3);
+        imageView4.setImage(image4);
+        imageView5.setImage(image5);
+        imageView6.setImage(image6);
+        retourBtn.setGraphic(imageView2);
     }
     public void ShowClientScene() throws SQLException {
         Stage stage = (Stage)this.shwBtn.getScene().getWindow();
@@ -46,6 +70,7 @@ public class UIClientele implements Initializable {
             Stage primaryStage= new Stage();
             Parent root= FXMLLoader.load(getClass().getResource("/GestionClientele/AfficherClient.fxml"));
             Scene scene = new Scene(root);
+            scene.getStylesheets().add(getClass().getResource("/application.css").toExternalForm());
             primaryStage.setScene(scene);
             primaryStage.show();
 
@@ -64,6 +89,7 @@ public class UIClientele implements Initializable {
 
             Parent root= FXMLLoader.load(getClass().getResource("/GestionClientele/AjouterClient.fxml"));
             Scene scene = new Scene(root);
+            scene.getStylesheets().add(getClass().getResource("/application.css").toExternalForm());
             primaryStage.setScene(scene);
             primaryStage.show();
         }catch (Exception e){
@@ -81,6 +107,7 @@ public class UIClientele implements Initializable {
 
             Parent root= FXMLLoader.load(getClass().getResource("/GestionClientele/ModifierClient.fxml"));
             Scene scene = new Scene(root);
+            scene.getStylesheets().add(getClass().getResource("/application.css").toExternalForm());
             primaryStage.setScene(scene);
             primaryStage.show();
         }catch (Exception e){
@@ -98,6 +125,7 @@ public class UIClientele implements Initializable {
 
             Parent root= FXMLLoader.load(getClass().getResource("/GestionClientele/SupprimerClient.fxml"));
             Scene scene = new Scene(root);
+            scene.getStylesheets().add(getClass().getResource("/application.css").toExternalForm());
             primaryStage.setScene(scene);
             primaryStage.show();
         }catch (Exception e){
@@ -111,6 +139,7 @@ public class UIClientele implements Initializable {
         stage = (Stage)((Node)event.getSource()).getScene().getWindow();
         scene = new Scene(root);
         stage.setScene(scene);
+        scene.getStylesheets().add(getClass().getResource("/application.css").toExternalForm());
         stage.show();
     }
     public void switchToPreviousSceneAC(ActionEvent event) throws IOException {
@@ -118,6 +147,7 @@ public class UIClientele implements Initializable {
         stage = (Stage)((Node)event.getSource()).getScene().getWindow();
         scene = new Scene(root);
         stage.setScene(scene);
+        scene.getStylesheets().add(getClass().getResource("/application.css").toExternalForm());
         stage.show();
     }
 }

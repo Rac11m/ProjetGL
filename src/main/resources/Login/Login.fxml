@@ -5,34 +5,41 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.PasswordField?>
 <?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
 <AnchorPane fx:id="anchrPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="821.0" prefWidth="1400.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Login.LoginController">
    <children>
-      <Label fx:id="bienvueLabel" alignment="CENTER" contentDisplay="CENTER" layoutX="-2.0" layoutY="141.0" prefHeight="61.0" prefWidth="1400.0" text="BIENVENUE" textFill="#00a2c6">
+      <Label fx:id="bienvueLabel" alignment="CENTER" contentDisplay="CENTER" layoutX="-2.0" layoutY="187.0" prefHeight="61.0" prefWidth="1400.0" text="BIENVENUE" textFill="#00a2c6">
          <font>
             <Font name="DejaVu Sans Bold" size="50.0" />
          </font>
       </Label>
-      <TextField fx:id="emlField" layoutX="577.0" layoutY="262.0" prefHeight="31.0" prefWidth="242.0" />
-      <Label fx:id="emlLabel" layoutX="579.0" layoutY="235.0" text="Email">
+      <TextField fx:id="emlField" layoutX="578.0" layoutY="302.0" prefHeight="31.0" prefWidth="242.0" />
+      <Label fx:id="emlLabel" layoutX="580.0" layoutY="275.0" text="Email">
          <font>
             <Font name="DejaVu Sans Bold" size="16.0" />
          </font></Label>
-      <Label fx:id="passwordLabel" layoutX="579.0" layoutY="309.0" text="Password">
+      <Label fx:id="passwordLabel" layoutX="580.0" layoutY="349.0" text="Password">
          <font>
             <Font name="DejaVu Sans Bold" size="16.0" />
          </font></Label>
-      <ChoiceBox fx:id="chcBox" layoutX="577.0" layoutY="387.0" prefHeight="24.0" prefWidth="242.0" value="choixUn" />
-      <Button fx:id="btnLogin" layoutX="640.0" layoutY="447.0" mnemonicParsing="false" onAction="#Login" prefHeight="40.0" prefWidth="116.0" text="Login">
+      <ChoiceBox fx:id="chcBox" layoutX="578.0" layoutY="440.0" prefHeight="40.0" prefWidth="242.0" value="choixUn" />
+      <Button fx:id="btnLogin" layoutX="641.0" layoutY="537.0" mnemonicParsing="false" onAction="#Login" prefHeight="40.0" prefWidth="116.0" text="Login">
          <font>
             <Font name="DejaVu Serif Bold" size="20.0" />
          </font></Button>
-      <Label fx:id="LoginStatus" alignment="CENTER" layoutY="543.0" prefHeight="67.0" prefWidth="1400.0">
+      <Label fx:id="LoginStatus" alignment="CENTER" layoutX="-2.0" layoutY="614.0" prefHeight="67.0" prefWidth="1400.0">
          <font>
             <Font name="System Bold" size="14.0" />
          </font></Label>
-      <PasswordField fx:id="passwordField" layoutX="579.0" layoutY="338.0" prefHeight="31.0" prefWidth="242.0" />
+      <PasswordField fx:id="passwordField" layoutX="580.0" layoutY="378.0" prefHeight="31.0" prefWidth="242.0" />
+      <ImageView fx:id="imageView" fitHeight="150.0" fitWidth="200.0" layoutX="624.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@milky.png" />
+         </image>
+      </ImageView>
    </children>
 </AnchorPane>

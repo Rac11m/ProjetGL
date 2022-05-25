@@ -14,6 +14,8 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.stage.Stage;
 
 import java.io.IOException;
@@ -55,10 +57,20 @@ public class UpdateClients implements Initializable {
     @FXML
     private Label statusLabel;
 
+    @FXML
+    private ImageView imageView,imageView2;
+    @FXML
+    private Image image1 = new Image(getClass().getResourceAsStream("/Images/milky.png"));
+    @FXML
+    private Image image2 = new Image(getClass().getResourceAsStream("/Images/back.png"));
+    @FXML
+    private Button retourBtn;
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-
+        imageView.setImage(image1);
+        imageView2.setImage(image2);
+        retourBtn.setGraphic(imageView2);
     }
 
     public boolean chercherClient(String email) throws  Exception{
@@ -171,6 +183,7 @@ public class UpdateClients implements Initializable {
         root = FXMLLoader.load(getClass().getResource("/GestionClientele/UIClientele.fxml"));
         stage = (Stage)((Node)event.getSource()).getScene().getWindow();
         scene = new Scene(root);
+        scene.getStylesheets().add(getClass().getResource("/application.css").toExternalForm());
         stage.setScene(scene);
         stage.show();
     }

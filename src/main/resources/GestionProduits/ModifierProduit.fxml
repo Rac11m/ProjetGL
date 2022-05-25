@@ -6,29 +6,36 @@
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
 
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.image.Image?>
 <AnchorPane prefHeight="821.0" prefWidth="1400.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GestionDeProduit.UpdateProducts">
    <children>
-      <Button fx:id="retourBtn" layoutX="-2.0" mnemonicParsing="false" onAction="#switchToPreviousScene" text="Retour" />
-      <TextField fx:id="searchTF" layoutX="332.0" layoutY="46.0" prefHeight="24.0" prefWidth="254.0" promptText="chercher produit à modifier" />
-      <Button fx:id="updateBtn" layoutX="474.0" layoutY="372.0" mnemonicParsing="false" onAction="#Update" prefHeight="24.0" prefWidth="263.0" text="Modifier" />
-      <Label layoutX="375.0" layoutY="210.0" text="designation" />
-      <Label layoutX="590.0" layoutY="210.0" text="Valeur-nutritionnelle:" />
-      <Label layoutX="33.0" layoutY="210.0" text="date production:" />
-      <Label layoutX="199.0" layoutY="210.0" text="date peremption:" />
-      <Label layoutX="380.0" layoutY="283.0" text="poids net:" />
-      <Label layoutX="594.0" layoutY="283.0" text="prix:" />
-      <Label layoutX="27.0" layoutY="283.0" text="quantite:" />
-      <Label layoutX="199.0" layoutY="283.0" text="ingredients:" />
-      <TextField fx:id="desTF" layoutX="376.0" layoutY="239.0" prefHeight="24.0" prefWidth="147.0" />
-      <TextField fx:id="vnTF" layoutX="590.0" layoutY="239.0" prefHeight="24.0" prefWidth="147.0" />
-      <TextField fx:id="prixTF" layoutX="590.0" layoutY="311.0" prefHeight="24.0" prefWidth="147.0" />
-      <TextField fx:id="pnTF" layoutX="377.0" layoutY="311.0" prefHeight="24.0" prefWidth="147.0" />
-      <TextField fx:id="ingdTF" layoutX="199.0" layoutY="311.0" prefHeight="24.0" prefWidth="147.0" />
-      <TextField fx:id="qntTF" layoutX="23.0" layoutY="311.0" prefHeight="24.0" prefWidth="147.0" />
-      <DatePicker fx:id="dateProTF" layoutX="27.0" layoutY="239.0" prefHeight="24.0" prefWidth="139.0" />
-      <DatePicker fx:id="datePrmTF" layoutX="199.0" layoutY="239.0" prefHeight="24.0" prefWidth="115.0" />
-      <Label fx:id="statusLabel" alignment="CENTER" layoutX="474.0" layoutY="411.0" prefHeight="54.0" prefWidth="263.0" />
-      <Button layoutX="660.0" layoutY="46.0" mnemonicParsing="false" onAction="#rechercheBtn" text="Chercher" />
-      <Label fx:id="ChercherLabel" alignment="CENTER" layoutY="112.0" prefHeight="34.0" prefWidth="738.0" />
+      <Button fx:id="retourBtn" layoutX="-2.0" mnemonicParsing="false" onAction="#switchToPreviousScene" prefHeight="48.0" prefWidth="68.0" />
+      <ImageView fx:id="imageView" fitHeight="150.0" fitWidth="200.0" layoutX="606.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../Images/milky.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="imageView2" fitHeight="48.0" fitWidth="68.0" pickOnBounds="true" preserveRatio="true" />      <TextField fx:id="searchTF" layoutX="598.0" layoutY="226.0" prefHeight="43.0" prefWidth="302.0" promptText="chercher produit à modifier" />
+      <Button fx:id="updateBtn" layoutX="789.0" layoutY="527.0" mnemonicParsing="false" onAction="#Update" prefHeight="43.0" prefWidth="263.0" text="Modifier" />
+      <Label layoutX="690.0" layoutY="365.0" text="designation" />
+      <Label layoutX="905.0" layoutY="365.0" text="Valeur-nutritionnelle:" />
+      <Label layoutX="348.0" layoutY="365.0" text="date production:" />
+      <Label layoutX="514.0" layoutY="365.0" text="date peremption:" />
+      <Label layoutX="695.0" layoutY="438.0" text="poids net:" />
+      <Label layoutX="909.0" layoutY="438.0" text="prix:" />
+      <Label layoutX="342.0" layoutY="438.0" text="quantite:" />
+      <Label layoutX="514.0" layoutY="438.0" text="ingredients:" />
+      <TextField fx:id="desTF" layoutX="691.0" layoutY="394.0" prefHeight="24.0" prefWidth="147.0" />
+      <TextField fx:id="vnTF" layoutX="905.0" layoutY="394.0" prefHeight="24.0" prefWidth="147.0" />
+      <TextField fx:id="prixTF" layoutX="905.0" layoutY="466.0" prefHeight="24.0" prefWidth="147.0" />
+      <TextField fx:id="pnTF" layoutX="692.0" layoutY="466.0" prefHeight="24.0" prefWidth="147.0" />
+      <TextField fx:id="ingdTF" layoutX="514.0" layoutY="466.0" prefHeight="24.0" prefWidth="147.0" />
+      <TextField fx:id="qntTF" layoutX="338.0" layoutY="466.0" prefHeight="24.0" prefWidth="147.0" />
+      <DatePicker fx:id="dateProTF" layoutX="342.0" layoutY="394.0" prefHeight="24.0" prefWidth="139.0" />
+      <DatePicker fx:id="datePrmTF" layoutX="514.0" layoutY="394.0" prefHeight="24.0" prefWidth="139.0" />
+      <Label fx:id="statusLabel" alignment="CENTER" layoutX="744.0" layoutY="578.0" prefHeight="54.0" prefWidth="347.0" />
+      <Button layoutX="922.0" layoutY="226.0" mnemonicParsing="false" onAction="#rechercheBtn" prefHeight="43.0" prefWidth="127.0" text="Chercher" />
+      <Label fx:id="ChercherLabel" alignment="CENTER" layoutX="314.0" layoutY="292.0" prefHeight="43.0" prefWidth="738.0" />
    </children>
 </AnchorPane>

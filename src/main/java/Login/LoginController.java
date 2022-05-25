@@ -15,11 +15,12 @@ import javafx.scene.control.Button;
 import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 import methode.Agent;
 import methode.Client;
-import org.w3c.dom.Text;
 
 import java.net.URL;
 import java.sql.SQLException;
@@ -40,6 +41,12 @@ public class LoginController implements Initializable {
 
     @FXML
     private TextField emlField;
+
+    @FXML
+    private ImageView imageView;
+    @FXML
+    private Image image = new Image(getClass().getResourceAsStream("/Images/milky.png"));
+
 
     /* pour les commandes */
 
@@ -63,7 +70,7 @@ public class LoginController implements Initializable {
     public void initialize(URL location, ResourceBundle resources){
         // chcBox.getItems().addAll(profiles);
         this.chcBox.setItems(FXCollections.observableArrayList(option.values()));
-
+        imageView.setImage(image);
 
     }
 
@@ -113,7 +120,7 @@ public class LoginController implements Initializable {
             Stage AgentVStage =new Stage();
             Parent root= FXMLLoader.load(getClass().getResource("/AgentDeVente/AgentDeVente.fxml"));
             Scene scene = new Scene(root);
-//            scene.getStylesheets().add(getClass().getResource("application.css").toExternalForm());
+            scene.getStylesheets().add(getClass().getResource("/application.css").toExternalForm());
             AgentVStage.setScene(scene);
             AgentVStage.show();
 
@@ -139,7 +146,7 @@ public class LoginController implements Initializable {
 
             Parent root= FXMLLoader.load(getClass().getResource("/AgentCommercial/AgentCommercial.fxml"));
             Scene scene = new Scene(root);
-//            scene.getStylesheets().add(getClass().getResource("application.css").toExternalForm());
+            scene.getStylesheets().add(getClass().getResource("/application.css").toExternalForm());
             primaryStage.setScene(scene);
             primaryStage.show();
 
@@ -166,7 +173,7 @@ public class LoginController implements Initializable {
 
             Parent root= FXMLLoader.load(getClass().getResource("/Directeur/Directeur.fxml"));
             Scene scene = new Scene(root);
-//            scene.getStylesheets().add(getClass().getResource("application.css").toExternalForm());
+            scene.getStylesheets().add(getClass().getResource("/application.css").toExternalForm());
             primaryStage.setScene(scene);
             primaryStage.show();
 
@@ -191,7 +198,7 @@ public class LoginController implements Initializable {
            Stage clientStage =new Stage();
            Parent root= FXMLLoader.load(getClass().getResource("/Client/Client.fxml"));
            Scene scene = new Scene(root);
-//         scene.getStylesheets().add(getClass().getResource("application.css").toExternalForm());
+           scene.getStylesheets().add(getClass().getResource("/application.css").toExternalForm());
            clientStage.setScene(scene);
            clientStage.show();
 

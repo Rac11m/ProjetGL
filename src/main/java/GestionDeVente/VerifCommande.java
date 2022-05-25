@@ -6,21 +6,26 @@ import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.stage.Stage;
 import methode.Client;
 import methode.Commande;
 
 import java.io.IOException;
+import java.net.URL;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.Properties;
+import java.util.ResourceBundle;
 import javax.mail.Message;
 import javax.mail.*;
 import javax.mail.internet.AddressException;
@@ -28,7 +33,7 @@ import javax.mail.internet.InternetAddress;
 import javax.mail.internet.MimeMessage;
 
 
-public class VerifCommande {
+public class VerifCommande implements Initializable {
 
     ObservableList<Commande> comm = FXCollections.observableArrayList();
 
@@ -66,9 +71,6 @@ public class VerifCommande {
     private TableColumn<Commande, CheckBox> VerifCol;
 
     @FXML
-    private Button retourBtn;
-
-    @FXML
     private Button VerifBtn;
 
     @FXML
@@ -78,6 +80,22 @@ public class VerifCommande {
     private TableView<Commande> tableComm;
 
     private Client [] emailC = new Client[50];
+
+    @FXML
+    private ImageView imageView,imageView2;
+    @FXML
+    private Image image1 = new Image(getClass().getResourceAsStream("/Images/milky.png"));
+    @FXML
+    private Image image2 = new Image(getClass().getResourceAsStream("/Images/back.png"));
+    @FXML
+    private Button retourBtn;
+
+    @Override
+    public void initialize(URL url, ResourceBundle resourceBundle) {
+        imageView.setImage(image1);
+        imageView2.setImage(image2);
+        retourBtn.setGraphic(imageView2);
+    }
 
     public void FactCliScene() throws SQLException {
         Stage stage = (Stage)this.FactCliBtn.getScene().getWindow();
@@ -175,8 +193,8 @@ public class VerifCommande {
                 prC=connection.prepareStatement(sqlC);
                 prC.setInt(1,this.comm.get(i).getId_client());
                 rsC=prC.executeQuery();
-               // String recepient = rsC.getString("email");
-                   String recepient = "boiteprojet2022@gmail.com";
+//                String recepient = rsC.getString("email");
+                String recepient = "boiteprojet2022@gmail.com";
                 sendMail(recepient,comm.get(i).getPrix_total());
 
                 }
@@ -239,6 +257,7 @@ public class VerifCommande {
         root = FXMLLoader.load(getClass().getResource("/AgentDeVente/AgentDeVente.fxml"));
         stage = (Stage)((Node)event.getSource()).getScene().getWindow();
         scene = new Scene(root);
+        scene.getStylesheets().add(getClass().getResource("/application.css").toExternalForm());
         stage.setScene(scene);
         stage.show();
     }

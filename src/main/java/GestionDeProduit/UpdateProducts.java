@@ -11,6 +11,8 @@ import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.stage.Stage;
 
 import java.io.IOException;
@@ -60,14 +62,23 @@ public class UpdateProducts implements Initializable {
     private Button updateBtn;
 
     @FXML
-    private Button retourBtn;
-    @FXML
     private Label ChercherLabel;
 
     @FXML
     private TextField vnTF;
+    @FXML
+    private ImageView imageView,imageView2;
+    @FXML
+    private Image image1 = new Image(getClass().getResourceAsStream("/Images/milky.png"));
+    @FXML
+    private Image image2 = new Image(getClass().getResourceAsStream("/Images/back.png"));
+    @FXML
+    private Button retourBtn;
 
     public void initialize(URL location, ResourceBundle resources){
+        imageView.setImage(image1);
+        imageView2.setImage(image2);
+        retourBtn.setGraphic(imageView2);
     }
 
 
@@ -216,6 +227,7 @@ public class UpdateProducts implements Initializable {
         stage = (Stage)((Node)event.getSource()).getScene().getWindow();
         scene = new Scene(root);
         stage.setScene(scene);
+        scene.getStylesheets().add(getClass().getResource("/application.css").toExternalForm());
         stage.show();
     }
 
@@ -224,6 +236,7 @@ public class UpdateProducts implements Initializable {
         stage = (Stage)((Node)event.getSource()).getScene().getWindow();
         scene = new Scene(root);
         stage.setScene(scene);
+        scene.getStylesheets().add(getClass().getResource("/application.css").toExternalForm());
         stage.show();
     }
 

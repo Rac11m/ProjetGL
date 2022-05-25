@@ -7,30 +7,38 @@
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
 
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.image.Image?>
 <AnchorPane prefHeight="821.0" prefWidth="1400.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GestionDeProduit.AddProducts">
    <children>
-      <TextField fx:id="refTF" layoutX="197.0" layoutY="61.0" prefHeight="24.0" prefWidth="115.0" />
-      <Label layoutX="34.0" layoutY="31.0" text="Type:" />
-      <Label layoutX="197.0" layoutY="31.0" text="reference:" />
-      <Label layoutX="357.0" layoutY="31.0" text="designation" />
-      <Label layoutX="580.0" layoutY="31.0" text="Valeur-nutritionnelle:" />
-      <Label layoutX="38.0" layoutY="119.0" text="date production:" />
-      <Label layoutX="198.0" layoutY="119.0" text="date peremption:" />
-      <Label layoutX="370.0" layoutY="119.0" text="poids net:" />
-      <Label layoutX="580.0" layoutY="111.0" text="prix:" />
-      <Label layoutX="23.0" layoutY="207.0" text="quantite:" />
-      <Label layoutX="198.0" layoutY="199.0" text="ingredients:" />
-      <TextField fx:id="desTF" layoutX="348.0" layoutY="61.0" prefHeight="24.0" prefWidth="147.0" />
-      <TextField fx:id="vnTF" layoutX="576.0" layoutY="61.0" prefHeight="24.0" prefWidth="147.0" />
-      <TextField fx:id="prixTF" layoutX="580.0" layoutY="135.0" prefHeight="24.0" prefWidth="147.0" />
-      <TextField fx:id="pnTF" layoutX="362.0" layoutY="135.0" prefHeight="24.0" prefWidth="147.0" />
-      <TextField fx:id="ingdTF" layoutX="192.0" layoutY="232.0" prefHeight="24.0" prefWidth="147.0" />
-      <TextField fx:id="qntTF" layoutX="18.0" layoutY="232.0" prefHeight="24.0" prefWidth="147.0" />
-      <DatePicker fx:id="dateProTF" layoutX="34.0" layoutY="147.0" prefHeight="24.0" prefWidth="139.0" />
-      <DatePicker fx:id="datePrmTF" layoutX="208.0" layoutY="147.0" prefHeight="24.0" prefWidth="115.0" />
-      <Button fx:id="ajtBTN" layoutX="357.0" layoutY="348.0" mnemonicParsing="false" onAction="#Add" text="Ajouter!" />
-      <ChoiceBox fx:id="typePchbox" layoutX="29.0" layoutY="61.0" prefWidth="150.0" />
-      <Button fx:id="retourBtn" layoutX="-2.0" mnemonicParsing="false" onAction="#switchToPreviousScene" text="Retour" />
-      <Label fx:id="statusLabel" alignment="CENTER" layoutX="206.0" layoutY="469.0" prefHeight="16.0" prefWidth="383.0" />
+      <TextField fx:id="refTF" layoutX="510.0" layoutY="363.0" prefHeight="40.0" prefWidth="187.0" />
+      <Label layoutX="302.0" layoutY="327.0" text="Type:" />
+      <Label layoutX="510.0" layoutY="327.0" text="reference:" />
+      <Label layoutX="756.0" layoutY="327.0" text="designation" />
+      <Label layoutX="998.0" layoutY="327.0" text="Valeur-nutritionnelle:" />
+      <Label layoutX="307.0" layoutY="416.0" text="date production:" />
+      <Label layoutX="513.0" layoutY="416.0" text="date peremption:" />
+      <Label layoutX="761.0" layoutY="416.0" text="poids net:" />
+      <Label layoutX="1010.0" layoutY="416.0" text="prix:" />
+      <Label layoutX="302.0" layoutY="507.0" text="quantite:" />
+      <Label layoutX="513.0" layoutY="507.0" text="ingredients:" />
+      <TextField fx:id="desTF" layoutX="751.0" layoutY="363.0" prefHeight="40.0" prefWidth="187.0" />
+      <TextField fx:id="vnTF" layoutX="998.0" layoutY="360.0" prefHeight="47.0" prefWidth="187.0" />
+      <TextField fx:id="prixTF" layoutX="998.0" layoutY="440.0" prefHeight="40.0" prefWidth="187.0" />
+      <TextField fx:id="pnTF" layoutX="751.0" layoutY="440.0" prefHeight="40.0" prefWidth="187.0" />
+      <TextField fx:id="ingdTF" layoutX="510.0" layoutY="537.0" prefHeight="40.0" prefWidth="187.0" />
+      <TextField fx:id="qntTF" layoutX="298.0" layoutY="537.0" prefHeight="40.0" prefWidth="187.0" />
+      <DatePicker fx:id="dateProTF" layoutX="298.0" layoutY="440.0" prefHeight="40.0" prefWidth="187.0" />
+      <DatePicker fx:id="datePrmTF" layoutX="510.0" layoutY="440.0" prefHeight="40.0" prefWidth="187.0" />
+      <Button fx:id="ajtBTN" layoutX="622.0" layoutY="651.0" mnemonicParsing="false" onAction="#Add" prefHeight="40.0" prefWidth="158.0" text="Ajouter!" />
+      <ChoiceBox fx:id="typePchbox" layoutX="298.0" layoutY="363.0" prefHeight="40.0" prefWidth="187.0" />
+      <Button fx:id="retourBtn" layoutX="-2.0" mnemonicParsing="false" onAction="#switchToPreviousScene" prefHeight="48.0" prefWidth="68.0" />
+      <ImageView fx:id="imageView" fitHeight="150.0" fitWidth="200.0" layoutX="606.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../Images/milky.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="imageView2" fitHeight="48.0" fitWidth="68.0" pickOnBounds="true" preserveRatio="true" />
+      <Label fx:id="statusLabel" alignment="CENTER" layoutX="6.0" layoutY="707.0" prefHeight="47.0" prefWidth="1392.0" />
    </children>
 </AnchorPane>

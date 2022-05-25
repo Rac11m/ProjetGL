@@ -8,11 +8,13 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.image.Image?>
 <AnchorPane prefHeight="821.0" prefWidth="1400.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controllers.UICommandes">
    <children>
-      <TextField fx:id="refTF" layoutX="322.0" layoutY="124.0" prefHeight="35.0" prefWidth="224.0" />
-      <Button fx:id="ajtprdBtn" layoutX="751.0" layoutY="124.0" mnemonicParsing="false" onAction="#AddCommande" prefHeight="35.0" prefWidth="234.0" text="Ajouter" />
-      <TableView fx:id="tableView" layoutX="295.0" layoutY="236.0" prefHeight="200.0" prefWidth="687.0">
+      <TextField fx:id="refTF" layoutX="369.0" layoutY="278.0" prefHeight="35.0" prefWidth="224.0" />
+      <Button fx:id="ajtprdBtn" layoutX="798.0" layoutY="278.0" mnemonicParsing="false" onAction="#AddCommande" prefHeight="35.0" prefWidth="234.0" text="Ajouter" />
+      <TableView fx:id="tableView" layoutX="362.0" layoutY="342.0" prefHeight="200.0" prefWidth="687.0">
         <columns>
           <TableColumn fx:id="produitCol" prefWidth="165.0" text="Produit" />
           <TableColumn fx:id="qntCol" prefWidth="132.0" text="Quantité" />
@@ -20,29 +22,40 @@
             <TableColumn fx:id="prixCol" prefWidth="170.0" text="Prix" />
         </columns>
       </TableView>
-      <Label layoutX="322.0" layoutY="87.0" text="Ref Produit">
+      <Label layoutX="369.0" layoutY="241.0" text="Ref Produit">
          <font>
             <Font name="Gargi" size="16.0" />
          </font></Label>
-      <TextField fx:id="qntTF" layoutX="555.0" layoutY="124.0" prefHeight="35.0" prefWidth="150.0" />
-      <Label layoutX="555.0" layoutY="87.0" text="Quantité">
+      <TextField fx:id="qntTF" layoutX="602.0" layoutY="278.0" prefHeight="35.0" prefWidth="150.0" />
+      <Label layoutX="602.0" layoutY="241.0" text="Quantité">
          <font>
             <Font name="Gargi" size="16.0" />
          </font></Label>
-      <Label alignment="CENTER" layoutX="295.0" layoutY="477.0" prefHeight="54.0" prefWidth="687.0" text="Prix total">
+      <Label alignment="CENTER" layoutX="544.0" layoutY="595.0" prefHeight="54.0" prefWidth="127.0" text="Prix total">
          <font>
             <Font size="18.0" />
          </font></Label>
-      <Button fx:id="commandeBtn" layoutX="539.0" layoutY="585.0" mnemonicParsing="false" onAction="#Commander" prefHeight="20.0" prefWidth="202.0" text="Commander !" />
-      <Label fx:id="statusLabel" alignment="CENTER" layoutY="623.0" prefHeight="46.0" prefWidth="1281.0">
+      <Button fx:id="commandeBtn" layoutX="579.0" layoutY="668.0" mnemonicParsing="false" onAction="#Commander" prefHeight="46.0" prefWidth="261.0" text="Commander !" />
+      <Label fx:id="statusLabel" alignment="CENTER" layoutX="14.0" layoutY="746.0" prefHeight="46.0" prefWidth="1384.0">
          <font>
             <Font name="DejaVu Sans Bold" size="16.0" />
          </font></Label>
-      <Label fx:id="prixtotalTF" layoutX="705.0" layoutY="481.0">
+      <Label fx:id="prixtotalTF" layoutX="671.0" layoutY="599.0" prefHeight="46.0" prefWidth="186.0">
          <font>
             <Font size="16.0" />
          </font>
       </Label>
-      <Button mnemonicParsing="false" onAction="#switchToPreviousScene" text="Retour" />
+      <Button fx:id="retourBtn" layoutX="-2.0" mnemonicParsing="false" onAction="#switchToPreviousScene" prefHeight="48.0" prefWidth="68.0" />
+      <ImageView fx:id="imageView" fitHeight="150.0" fitWidth="200.0" layoutX="606.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../Images/milky.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="imageView2" fitHeight="48.0" fitWidth="68.0" pickOnBounds="true" preserveRatio="true" />
+      <Label fx:id="ChercherLabel" alignment="CENTER" layoutX="1.0" layoutY="145.0" prefHeight="36.0" prefWidth="1400.0">
+      <font>
+         <Font size="15.0" />
+      </font>
+      </Label>
    </children>
 </AnchorPane>

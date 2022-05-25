@@ -5,12 +5,14 @@
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
 <AnchorPane prefHeight="821.0" prefWidth="1400.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GestionDeClient.ShowClients">
     <children>
-        <TableView fx:id="TableClient" layoutX="29.0" layoutY="297.0" prefHeight="458.0" prefWidth="1350.0">
+        <TableView fx:id="TableClient" layoutX="34.0" layoutY="338.0" prefHeight="458.0" prefWidth="1350.0">
             <columns>
                 <TableColumn fx:id="IDcol" prefWidth="47.0" text="ID" />
                 <TableColumn fx:id="typeCol" prefWidth="123.0" text="Type client" />
@@ -22,11 +24,17 @@
                 <TableColumn fx:id="AdrCol" prefWidth="332.0" text="Adresse" />
             </columns>
         </TableView>
-        <TextField fx:id="SearchTF" layoutX="523.0" layoutY="92.0" prefHeight="36.0" prefWidth="252.0" promptText="Chercher Client par son email" />
-        <Button fx:id="SearchBtn" contentDisplay="CENTER" layoutX="793.0" layoutY="92.0" mnemonicParsing="false" onAction="#rechercheBtn" prefHeight="36.0" prefWidth="87.0" text="Chercher" />
-        <Button fx:id="loadAllBtn" layoutX="523.0" layoutY="33.0" mnemonicParsing="false" onAction="#LoadAll" prefHeight="36.0" prefWidth="357.0" text="Tout afficher" />
-        <Button fx:id="retourBtn" layoutX="-2.0" mnemonicParsing="false" onAction="#switchToPreviousScene" text="Retour" />
-      <Label fx:id="ChercherLabel" alignment="CENTER" layoutX="1.0" layoutY="145.0" prefHeight="36.0" prefWidth="1400.0">
+        <TextField fx:id="SearchTF" layoutX="523.0" layoutY="235.0" prefHeight="36.0" prefWidth="252.0" promptText="Chercher Client par son email" />
+        <Button fx:id="SearchBtn" contentDisplay="CENTER" layoutX="793.0" layoutY="235.0" mnemonicParsing="false" onAction="#rechercheBtn" prefHeight="36.0" prefWidth="87.0" text="Chercher" />
+        <Button fx:id="loadAllBtn" layoutX="523.0" layoutY="176.0" mnemonicParsing="false" onAction="#LoadAll" prefHeight="36.0" prefWidth="357.0" text="Tout afficher" />
+        <Button fx:id="retourBtn" layoutX="-2.0" mnemonicParsing="false" onAction="#switchToPreviousScene" prefHeight="48.0" prefWidth="68.0" />
+        <ImageView fx:id="imageView" fitHeight="150.0" fitWidth="200.0" layoutX="606.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
+            <image>
+                <Image url="@../Images/milky.png" />
+            </image>
+        </ImageView>
+        <ImageView fx:id="imageView2" fitHeight="48.0" fitWidth="68.0" pickOnBounds="true" preserveRatio="true" />
+        <Label fx:id="ChercherLabel" alignment="CENTER" layoutX="1.0" layoutY="288.0" prefHeight="36.0" prefWidth="1400.0">
          <font>
             <Font size="15.0" />
          </font>

@@ -6,11 +6,14 @@ import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.stage.Stage;
 
 import java.io.IOException;
@@ -21,7 +24,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ResourceBundle;
 
-public class ShowProducts {
+public class ShowProducts implements Initializable {
 
     ObservableList<Produit> prod = FXCollections.observableArrayList();
 
@@ -71,8 +74,19 @@ public class ShowProducts {
     private Stage stage;
     private Scene scene;
     private Parent root;
+    @FXML
+    private ImageView imageView,imageView2;
+    @FXML
+    private Image image1 = new Image(getClass().getResourceAsStream("/Images/milky.png"));
+    @FXML
+    private Image image2 = new Image(getClass().getResourceAsStream("/Images/back.png"));
+    @FXML
+    private Button retourBtn;
 
     public void initialize(URL location, ResourceBundle resouces){
+        imageView.setImage(image1);
+        imageView2.setImage(image2);
+        retourBtn.setGraphic(imageView2);
     }
     // RECHERCHER UN PRODUIT DANS LA BASE DE DONNEES
 
@@ -272,6 +286,7 @@ public class ShowProducts {
         stage = (Stage)((Node)event.getSource()).getScene().getWindow();
         scene = new Scene(root);
         stage.setScene(scene);
+        scene.getStylesheets().add(getClass().getResource("/application.css").toExternalForm());
         stage.show();
     }
     public void switchToPreviousSceneClient(ActionEvent event) throws IOException {
@@ -279,6 +294,7 @@ public class ShowProducts {
         stage = (Stage)((Node)event.getSource()).getScene().getWindow();
         scene = new Scene(root);
         stage.setScene(scene);
+        scene.getStylesheets().add(getClass().getResource("/application.css").toExternalForm());
         stage.show();
     }
 }

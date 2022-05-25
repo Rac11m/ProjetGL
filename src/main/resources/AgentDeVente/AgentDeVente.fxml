@@ -2,14 +2,46 @@
 
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
 
 <AnchorPane prefHeight="821.0" prefWidth="1400.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controllers.AgentDeVenteC">
     <children>
-        <Button fx:id="GP" layoutX="88.0" layoutY="169.0" mnemonicParsing="false" onAction="#GestionDesProduitsBouton" prefHeight="98.0" prefWidth="344.0" text="Gestion des Produits " />
-        <Button fx:id="GC" layoutX="88.0" layoutY="316.0" mnemonicParsing="false" onAction="#GestionDeClienteleBouton" prefHeight="98.0" prefWidth="344.0" text="Gestion des Clients" />
-        <Button fx:id="GV" layoutX="88.0" layoutY="449.0" mnemonicParsing="false" onAction="#GestionDesCommades" prefHeight="98.0" prefWidth="344.0" text="Gestion des Commandes" />
-        <Label alignment="CENTER" layoutY="61.0" prefHeight="48.0" prefWidth="800.0" text="Bienvenue Mr.Agent de ventes" />
-        <Button fx:id="retourBtn" layoutX="-2.0" mnemonicParsing="false" onAction="#switchToPreviousScene" text="Retour" />
+        <Button fx:id="GP" layoutX="39.0" layoutY="603.0" mnemonicParsing="false" onAction="#GestionDesProduitsBouton" prefHeight="98.0" prefWidth="344.0" text="Gestion des Produits " />
+        <Button fx:id="GC" layoutX="514.0" layoutY="603.0" mnemonicParsing="false" onAction="#GestionDeClienteleBouton" prefHeight="98.0" prefWidth="344.0" text="Gestion des Clients" />
+        <Button fx:id="GV" layoutX="994.0" layoutY="603.0" mnemonicParsing="false" onAction="#GestionDesCommades" prefHeight="98.0" prefWidth="368.0" text="Gestion des Commandes" />
+        <Label alignment="CENTER" layoutX="87.0" layoutY="283.0" prefHeight="48.0" prefWidth="457.0" text="Bienvenue Mr.Agent de ventes">
+         <font>
+            <Font size="28.0" />
+         </font></Label>
+        <Button fx:id="retourBtn" layoutX="-2.0" mnemonicParsing="false" onAction="#switchToPreviousScene" prefHeight="48.0" prefWidth="68.0" />
+      <ImageView fx:id="imageView" fitHeight="150.0" fitWidth="200.0" layoutX="606.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../Images/milky.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="imageView2" fitHeight="48.0" fitWidth="68.0" pickOnBounds="true" preserveRatio="true" />
+      <ImageView fx:id="imageView3" fitHeight="150.0" fitWidth="200.0" layoutX="606.0" layoutY="232.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../Images/agentVente.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="imageView4" fitHeight="150.0" fitWidth="200.0" layoutX="111.0" layoutY="424.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../Images/gestionProduits.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="imageView5" fitHeight="150.0" fitWidth="200.0" layoutX="600.0" layoutY="430.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../Images/gestionClient.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="imageView6" fitHeight="150.0" fitWidth="200.0" layoutX="1101.0" layoutY="424.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../Images/gestionCommande.png" />
+         </image>
+      </ImageView>
     </children>
 </AnchorPane>
