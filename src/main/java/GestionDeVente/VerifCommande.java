@@ -97,24 +97,6 @@ public class VerifCommande implements Initializable {
         retourBtn.setGraphic(imageView2);
     }
 
-    public void FactCliScene() throws SQLException {
-        Stage stage = (Stage)this.FactCliBtn.getScene().getWindow();
-        stage.close();
-
-        try{
-            Stage primaryStage= new Stage();
-            Parent root= FXMLLoader.load(getClass().getResource("/GestionVentes/FacturerClient.fxml"));
-            Scene scene = new Scene(root);
-            primaryStage.setScene(scene);
-            primaryStage.show();
-
-        }catch (Exception e){
-            System.out.println("Vous avez un probleme avec GestionVentes/FacturerClient.fxml");
-            e.printStackTrace();
-        }
-    }
-
-
     public void ShowComm(ActionEvent event) throws SQLException{
         PreparedStatement pr=null;
         ResultSet rs=null;
@@ -193,8 +175,8 @@ public class VerifCommande implements Initializable {
                 prC=connection.prepareStatement(sqlC);
                 prC.setInt(1,this.comm.get(i).getId_client());
                 rsC=prC.executeQuery();
-//                String recepient = rsC.getString("email");
-                String recepient = "boiteprojet2022@gmail.com";
+                String recepient = rsC.getString("email");
+//                String recepient = "boiteprojet2022@gmail.com";
                 sendMail(recepient,comm.get(i).getPrix_total());
 
                 }
@@ -236,10 +218,8 @@ public class VerifCommande implements Initializable {
             }
         });
 
-       // Message message = prepareMessage(session,myAccountEmail,"boiteprojet2022@gmail.com");
         try {
-            //Transport.send(message,myAccountEmail,password);
-            //
+
             MimeMessage message = new MimeMessage(session);
             message.setFrom(new InternetAddress(myAccountEmail));
             message.addRecipient(Message.RecipientType.TO, new InternetAddress(recepient));
